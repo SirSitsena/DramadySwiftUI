@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
+    @ObservedObject var apiModel: ApiModel
     @State private var searchText = ""
     
     var body: some View {
@@ -35,7 +36,7 @@ struct MainPage: View {
 
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
-        MainPage()
+        MainPage(apiModel: ApiModel())
     }
 }
 }
