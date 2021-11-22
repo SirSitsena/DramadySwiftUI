@@ -21,6 +21,7 @@
 		CE56D0B1274BC64F00B8E7FC /* PopularPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */; };
 		CE56D0B3274BC8BD00B8E7FC /* FavouritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */; };
 		CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */; };
+		CE5B99BF274BE44900BC769D /* imdbApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99BE274BE44900BC769D /* imdbApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPage.swift; sourceTree = "<group>"; };
 		CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPage.swift; sourceTree = "<group>"; };
 		CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistPage.swift; sourceTree = "<group>"; };
+		CE5B99BE274BE44900BC769D /* imdbApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imdbApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */,
 				CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */,
 				CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */,
+				CE5B99BE274BE44900BC769D /* imdbApi.swift */,
 			);
 			path = Dramady;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5B99BF274BE44900BC769D /* imdbApi.swift in Sources */,
 				CE56D0AD274BC32600B8E7FC /* MainPage.swift in Sources */,
 				CE56D04C274BBA4400B8E7FC /* Persistence.swift in Sources */,
 				CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */,
