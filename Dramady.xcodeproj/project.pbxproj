@@ -16,6 +16,11 @@
 		CE56D059274BBA4400B8E7FC /* DramadyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D058274BBA4400B8E7FC /* DramadyTests.swift */; };
 		CE56D063274BBA4400B8E7FC /* DramadyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D062274BBA4400B8E7FC /* DramadyUITests.swift */; };
 		CE56D065274BBA4400B8E7FC /* DramadyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D064274BBA4400B8E7FC /* DramadyUITestsLaunchTests.swift */; };
+		CE56D0AD274BC32600B8E7FC /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0AC274BC32600B8E7FC /* MainPage.swift */; };
+		CE56D0AF274BC63F00B8E7FC /* TrendingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0AE274BC63F00B8E7FC /* TrendingPage.swift */; };
+		CE56D0B1274BC64F00B8E7FC /* PopularPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */; };
+		CE56D0B3274BC8BD00B8E7FC /* FavouritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */; };
+		CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		CE56D05E274BBA4400B8E7FC /* DramadyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DramadyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE56D062274BBA4400B8E7FC /* DramadyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramadyUITests.swift; sourceTree = "<group>"; };
 		CE56D064274BBA4400B8E7FC /* DramadyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramadyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE56D0AC274BC32600B8E7FC /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		CE56D0AE274BC63F00B8E7FC /* TrendingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingPage.swift; sourceTree = "<group>"; };
+		CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPage.swift; sourceTree = "<group>"; };
+		CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPage.swift; sourceTree = "<group>"; };
+		CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +114,11 @@
 				CE56D04B274BBA4400B8E7FC /* Persistence.swift */,
 				CE56D04D274BBA4400B8E7FC /* Dramady.xcdatamodeld */,
 				CE56D048274BBA4400B8E7FC /* Preview Content */,
+				CE56D0AC274BC32600B8E7FC /* MainPage.swift */,
+				CE56D0AE274BC63F00B8E7FC /* TrendingPage.swift */,
+				CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */,
+				CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */,
+				CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */,
 			);
 			path = Dramady;
 			sourceTree = "<group>";
@@ -263,8 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE56D0AD274BC32600B8E7FC /* MainPage.swift in Sources */,
 				CE56D04C274BBA4400B8E7FC /* Persistence.swift in Sources */,
+				CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */,
 				CE56D045274BBA4300B8E7FC /* ContentView.swift in Sources */,
+				CE56D0B1274BC64F00B8E7FC /* PopularPage.swift in Sources */,
+				CE56D0B3274BC8BD00B8E7FC /* FavouritesPage.swift in Sources */,
+				CE56D0AF274BC63F00B8E7FC /* TrendingPage.swift in Sources */,
 				CE56D04F274BBA4400B8E7FC /* Dramady.xcdatamodeld in Sources */,
 				CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */,
 			);
@@ -435,7 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +485,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
