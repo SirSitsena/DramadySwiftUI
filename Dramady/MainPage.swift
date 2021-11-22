@@ -21,8 +21,11 @@ struct MainPage: View {
 //                    Text("Movies searched: 290")
 //                    Text("Favourited movies: 290")
 //                    Text("Movies in watched: 290")
+                    //9999999999
                     Button("Let's do it!", action:{
                         searchText = ""
+                        searchText = ""
+                        
                     })
                 }
             
