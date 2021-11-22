@@ -12,26 +12,37 @@ struct MainPage: View {
     @State private var searchText = ""
     
     var body: some View {
-        NavigationView {
-                
-                
-                VStack{
-                    Text("Searching for \(searchText)")
-                        .searchable(text: $searchText)
-                        .navigationTitle("Search for movies")
-//                    Text("Movies searched: 290")
-//                    Text("Favourited movies: 290")
-//                    Text("Movies in watched: 290")
-                    //9999999999
-                    Button("Let's do it!", action:{
-                        searchText = ""
-                        searchText = ""
-                        
-                    })
-                }
-            
-    }
-        
+            NavigationView {
+                        VStack {
+                            Text("Searching for \(searchText)")
+                                .searchable(text: $searchText)
+                                .multilineTextAlignment(.leading)
+                                .navigationTitle("Search for movies")
+                            Button("Cinema time!", action:{
+                                searchText = ""
+                            })                                     //LOST THE CODE WHEN PULLED THE WRONG WAY
+                                .padding(.top, 25)
+                                .padding(.bottom, 95)
+                            VStack{
+                                HStack{
+                                    Text("Movies searched: 290")
+                                }
+                                HStack{
+                                    Text("Favourited movies: 290")
+                                }
+                                HStack{
+                                    Text("Movies in watched: 290")
+                                }
+                            }
+                            .frame(
+                                maxWidth: .infinity,
+                                alignment: .leading
+                            )
+                        }
+            }
+            .frame(
+                maxHeight: .infinity
+            )
 }
 
 struct MainPage_Previews: PreviewProvider {
