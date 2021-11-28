@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct TrendingPage: View {
+    @State private var movies = [popularMovie]()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(movies, id: \.id) {movie in
+            VStack {
+                Text(movie.title)
+                Text(movie.fullTitle)
+                Text(movie.rank)
+            }
+        }.task {
+            Api().fetchPopular{ (popularmovies) in
+                self.movies = popularmovies.items
+            }
+        }
     }
 }
 

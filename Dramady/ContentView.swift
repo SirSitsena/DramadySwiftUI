@@ -15,11 +15,11 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-    @StateObject var apimodel = ApiModel()
+    //@StateObject var apimodel = ApiModel()
 
     var body: some View {
         TabView {
-            MainPage(apiModel: apimodel)
+            MainPage()
                 .tabItem {
                     Text("Main")
                     Image(systemName: "house")
