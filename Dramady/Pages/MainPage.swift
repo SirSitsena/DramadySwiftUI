@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainPage: View {
     @State private var searchText = ""
+    @ObservedObject var imagefetcher = ImageFetcher()
     
     var body: some View {
             NavigationView {
@@ -17,14 +18,16 @@ struct MainPage: View {
                                 .searchable(text: $searchText)
                                 .multilineTextAlignment(.leading)
                                 .navigationTitle("Search for movies")
-                            Button("Cinema time!", action:{
-                                searchText = ""
-                            })                                     //LOST THE CODE WHEN PULLED THE WRONG WAY
+                            //LOST THE CODE WHEN PULLED THE WRONG WAY
+                            NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
+                                Text("Search!")
+                            }
                                 .padding(.top, 25)
                                 .padding(.bottom, 95)
                             VStack{
                                 HStack{
                                     Text("Movies searched: 290")
+                                    
                                 }
                                 HStack{
                                     Text("Favourited movies: 290")

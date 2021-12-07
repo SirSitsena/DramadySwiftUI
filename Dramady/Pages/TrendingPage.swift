@@ -15,6 +15,7 @@ struct TrendingPage: View {
                 Text(movie.title)
                 Text(movie.fullTitle)
                 Text(movie.rank)
+                //TrendingMovieView()
             }
         }.task {
             Api().fetchPopular{ (popularmovies) in

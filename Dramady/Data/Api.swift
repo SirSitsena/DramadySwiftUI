@@ -18,7 +18,7 @@ class Api: ObservableObject {
     @Published var lyrics: String = ""
     let apiKey: String = "k_1dtwun41"
     
-    // Unrelated function loading lyrics of song from artist and title
+    // FRANKENSTEIN - Unrelated function loading lyrics of song from artist and title
     func load(artist: String, title: String, completion: @escaping (SongSearch) -> ()) {
         let escapedArtist = artist.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let escapedTitle = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -29,7 +29,7 @@ class Api: ObservableObject {
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
             let lyr = try! JSONDecoder().decode(SongSearch.self, from: data!)
-            print(lyr)
+            //print(lyr)
             DispatchQueue.main.async {
                 completion(lyr)
             }
@@ -46,7 +46,7 @@ class Api: ObservableObject {
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
             let movies = try! JSONDecoder().decode(MoviesSearch.self, from: data!)
-            print(movies)
+            //print(movies)
             DispatchQueue.main.async {
                 completion(movies)
             }
@@ -61,7 +61,7 @@ class Api: ObservableObject {
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
             let movies = try! JSONDecoder().decode(topMovies.self, from: data!)
-            print(movies)
+            //print(movies)
             DispatchQueue.main.async {
                 completion(movies)
             }
@@ -76,10 +76,14 @@ class Api: ObservableObject {
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
             let movies = try! JSONDecoder().decode(popularMovies.self, from: data!)
-            print(movies)
+            //print(movies)
             DispatchQueue.main.async {
                 completion(movies)
             }
         }.resume()
+    }
+    //Fetch before a favourite
+    func fetchBeforeSave(id: String) {
+        //
     }
 }

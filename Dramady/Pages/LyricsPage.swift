@@ -25,7 +25,7 @@ struct LyricsPage: View {
                 })
             } else {
                 Text(lyrics)
-                    .onAppear() {
+                    .task {
                         Api().load(artist: artist, title: title) { (songSearch) in
                             self.lyrics = songSearch.lyrics
                         }
