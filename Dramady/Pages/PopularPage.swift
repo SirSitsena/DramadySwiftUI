@@ -17,8 +17,8 @@ struct PopularPage: View {
                 Text(movie.rank)
             }
         }.task {
-            Api().fetchPopular { (topmovies) in
-                self.movies = topmovies.items
+            Api().fetchPopular { (popularMovies) in
+                self.movies = popularMovies.items
             }
         }
     }
