@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PopularPage: View {
-    @State private var movies = [topMovie]()
+    @State private var movies = [popularMovie]()
     var body: some View {
         List(movies, id: \.id) {movie in
             VStack {
@@ -17,7 +17,7 @@ struct PopularPage: View {
                 Text(movie.rank)
             }
         }.task {
-            Api().fetchTop250() { (topmovies) in
+            Api().fetchPopular { (topmovies) in
                 self.movies = topmovies.items
             }
         }
