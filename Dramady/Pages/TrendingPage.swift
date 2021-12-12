@@ -12,8 +12,16 @@ struct TrendingPage: View {
     @ObservedObject var imageFetcher = ImageFetcher()
     @State var images: [String: UIImage] = [:]
     
+    init () {
+        UITableView.appearance().backgroundColor = .black
+    }
+    
 //    @State var image = UIImage()
     var body: some View {
+        
+        VStack{
+            Text("Trending Now")
+                .foregroundColor(.yellow)
         List(movies, id: \.id) {movie in
             VStack {
                 HStack{
@@ -29,31 +37,22 @@ struct TrendingPage: View {
                             //Color.blue
                         }
                     }
-                    
-                    
-                    
-                    //REAL MAN FIX MOVE UNWRAPPING THE
-//                    Image(uiImage: images[movie.id]!)
-//                        .resizable()
-//                        .frame(width: 50, height: 50, alignment: .leading)
-//                        .onReceive(imageFetcher.$image, perform: { image in
-//                            self.images[movie.id] = image
-//                        })
-//                        .onAppear(perform: {
-//                            images[movie.id] = UIImage()
-//                            imageFetcher.loadImage(for: movie.image)
-//                        })
+
                     Text(movie.title)
                     Text(movie.rank)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 //TrendingMovieView()
             }
-        }.task {
+        }
+        .colorMultiply(.purple)
+        .task {
             Api().fetchTop250 { (topMovies) in
                 self.movies = topMovies.items
-            }
         }
+        }
+        }
+        .background(Color.black)
     }
 }
 

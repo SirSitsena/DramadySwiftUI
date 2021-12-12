@@ -4,6 +4,8 @@
 //
 //  Created by User on 22.11.2021.
 //
+//(Color.parseColor("#7878AB")
+//backgroundColor: 7878AB
 
 import SwiftUI
 
@@ -11,7 +13,15 @@ struct PopularPage: View {
     @State private var movies = [popularMovie]()
     @ObservedObject var imageFetcher = ImageFetcher()
     @State var images: [String: UIImage] = [:]
+    
+    init () {
+        UITableView.appearance().backgroundColor = .black
+    }
+    
     var body: some View {
+        VStack{
+            Text("Popular Movies")
+                .foregroundColor(.yellow)
         List(movies, id: \.id) {movie in
             VStack {
                 HStack{
@@ -33,11 +43,14 @@ struct PopularPage: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
-        }.task {
+        }
+        .colorMultiply(.purple)
+        .task {
             Api().fetchPopular { (popularMovies) in
                 self.movies = popularMovies.items
             }
         }
+        }.background(Color.black)
     }
 }
 
