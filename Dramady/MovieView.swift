@@ -11,24 +11,45 @@ struct MovieView: View {
     @State var movie: FullMovie?
     let tId: String
     var body: some View {
-        VStack {
-            if let mov = movie {
-                Text(mov.title)
-                    .font(.title)
-                Text(mov.year)
-                Text(mov.fullTitle)
-                Text(mov.image)
-                Text(mov.releaseDate)
-                Text(mov.runtimeStr)
-                Text(mov.plot)
-                Text(mov.imDbRating)
-                
+        List{
+            VStack {
+                if let mov = movie {
+                    Text(mov.title)
+                        .font(.title)
+                    AsyncImage(url: URL(string: mov.image)) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 200, height: 200, alignment: .leading)
+                        } else if phase.error != nil {
+                            Color.red
+                        } else {
+                            ProgressView()
+                            //Color.blue
+                        }
+                    }
+                    .padding(.bottom, 15)
+                    Text("Year: \(mov.year)")
+                        .padding(.bottom, 15)
+                    Text("Imdb rating: \(mov.imDbRating)")
+                    .padding(.bottom, 15)
+                    Text("Movie length: \(mov.runtimeStr)")
+                        .padding(.bottom, 15)
+                    Text(mov.plot)
+                    
+                }
+            }.task {
+                Api().fetchFromTitleID(titleId: tId, completion: { (fullMovie) in
+                    self.movie = fullMovie
+                })
             }
-        }.task {
-            Api().fetchFromTitleID(titleId: tId, completion: { (fullMovie) in
-                self.movie = fullMovie
-            })
-        }
+        }.frame(
+            minHeight: 810,
+            maxHeight: .infinity,
+            alignment: .center
+        )
+        
     }
 }
 
