@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WatchlistPage: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     
     init () {
         UITableView.appearance().backgroundColor = .black
@@ -16,8 +18,14 @@ struct WatchlistPage: View {
     
     var body: some View {
             VStack{
-                VStack{
-                    Text("Hello World")
+                List(movies) { movie in
+                    if movie.isOnWatchlist {
+                        VStack {
+                            Text(movie.title  ?? "Nothing here")
+                            //Text(movie.id) //?? "No id")
+                            Text(movie.image ??  "No image")
+                        }
+                    }
                 }
             }
             .frame(

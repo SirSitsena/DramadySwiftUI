@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="LocalMovie" representedClassName=".LocalMovie" syncable="YES">
+        <attribute name="awards" optional="YES" attributeType="String"/>
+        <attribute name="directors" optional="YES" attributeType="String"/>
+        <attribute name="fullTitle" optional="YES" attributeType="String"/>
+        <attribute name="genres" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="imDbRating" optional="YES" attributeType="String"/>
         <attribute name="isFavourited" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isOnWatchlist" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String"/>
+        <attribute name="plot" optional="YES" attributeType="String"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+        <attribute name="runtimeMins" optional="YES" attributeType="String"/>
+        <attribute name="runtimeStr" optional="YES" attributeType="String"/>
+        <attribute name="stars" optional="YES" attributeType="String"/>
+        <attribute name="tagline" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="titleId" optional="YES" attributeType="String"/>
+        <attribute name="titleId" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="LocalMovie" positionX="-27" positionY="18" width="128" height="89"/>
+        <element name="LocalMovie" positionX="-27" positionY="18" width="128" height="299"/>
     </elements>
 </model>

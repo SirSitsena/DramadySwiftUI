@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(LocalMovie)
+
 public class LocalMovie: NSManagedObject {
 
 }
