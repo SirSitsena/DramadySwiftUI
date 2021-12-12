@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A35AD4E276498BB00727D34 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */; };
 		3A35AD502764A78900727D34 /* FullMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD4F2764A78900727D34 /* FullMovie.swift */; };
+		3A35ADA127664D3200727D34 /* DramadyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD9F27664D3200727D34 /* DramadyDataModel.xcdatamodeld */; };
+		3A35AE2C2766575600727D34 /* LocalMovie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE2A2766575600727D34 /* LocalMovie+CoreDataClass.swift */; };
+		3A35AE2D2766575600727D34 /* LocalMovie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE2B2766575600727D34 /* LocalMovie+CoreDataProperties.swift */; };
 		CE3A5355274CE40B003878B2 /* LyricsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A5354274CE40A003878B2 /* LyricsPage.swift */; };
 		CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D042274BBA4300B8E7FC /* DramadyApp.swift */; };
 		CE56D045274BBA4300B8E7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D044274BBA4300B8E7FC /* ContentView.swift */; };
@@ -57,8 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3A35AD4F2764A78900727D34 /* FullMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMovie.swift; sourceTree = "<group>"; };
+		3A35ADA027664D3200727D34 /* DramadyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DramadyDataModel.xcdatamodel; sourceTree = "<group>"; };
+		3A35AE2A2766575600727D34 /* LocalMovie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocalMovie+CoreDataClass.swift"; path = "Dramady/LocalMovie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3A35AE2B2766575600727D34 /* LocalMovie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocalMovie+CoreDataProperties.swift"; path = "Dramady/LocalMovie+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE3A5354274CE40A003878B2 /* LyricsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPage.swift; sourceTree = "<group>"; };
 		CE56D03F274BBA4300B8E7FC /* Dramady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE56D042274BBA4300B8E7FC /* DramadyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramadyApp.swift; sourceTree = "<group>"; };
@@ -114,7 +118,7 @@
 		3A35AD4B2764983C00727D34 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */,
+				3A35AD9F27664D3200727D34 /* DramadyDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -122,6 +126,8 @@
 		CE56D036274BBA4300B8E7FC = {
 			isa = PBXGroup;
 			children = (
+				3A35AE2A2766575600727D34 /* LocalMovie+CoreDataClass.swift */,
+				3A35AE2B2766575600727D34 /* LocalMovie+CoreDataProperties.swift */,
 				CE56D041274BBA4300B8E7FC /* Dramady */,
 				CE56D057274BBA4400B8E7FC /* DramadyTests */,
 				CE56D061274BBA4400B8E7FC /* DramadyUITests */,
@@ -359,10 +365,12 @@
 				CE5B99CF274C22F400BC769D /* ResultsPage.swift in Sources */,
 				CE56D0AF274BC63F00B8E7FC /* TrendingPage.swift in Sources */,
 				CED8409B2753B02800D47CF7 /* TopMovies.swift in Sources */,
+				3A35AE2D2766575600727D34 /* LocalMovie+CoreDataProperties.swift in Sources */,
 				CE56D04F274BBA4400B8E7FC /* Dramady.xcdatamodeld in Sources */,
 				CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */,
 				CE5B99C1274BECE800BC769D /* MovieView.swift in Sources */,
-				3A35AD4E276498BB00727D34 /* DataModel.xcdatamodeld in Sources */,
+				3A35AE2C2766575600727D34 /* LocalMovie+CoreDataClass.swift in Sources */,
+				3A35ADA127664D3200727D34 /* DramadyDataModel.xcdatamodeld in Sources */,
 				CE3A5355274CE40B003878B2 /* LyricsPage.swift in Sources */,
 				CED840992753AEB100D47CF7 /* Search.swift in Sources */,
 			);
@@ -721,13 +729,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */ = {
+		3A35AD9F27664D3200727D34 /* DramadyDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */,
+				3A35ADA027664D3200727D34 /* DramadyDataModel.xcdatamodel */,
 			);
-			currentVersion = 3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
+			currentVersion = 3A35ADA027664D3200727D34 /* DramadyDataModel.xcdatamodel */;
+			path = DramadyDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

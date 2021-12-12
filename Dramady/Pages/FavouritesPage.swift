@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct FavouritesPage: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     var body: some View {
-        VStack{
-            VStack{
-                Text("Hello World")
+        List(movies) { movie in
+            if movie.isFavourited {
+                VStack {
+                    Text(movie.title  ?? "Nothing here")
+                    //Text(movie.id) //?? "No id")
+                    Text(movie.image ??  "No image")
+                }
             }
         }
         .frame(
