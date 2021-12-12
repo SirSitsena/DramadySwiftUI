@@ -49,7 +49,11 @@ struct ResultsPage: View {
     //            //let remote = try! apiModel.SearchMovie(keywords: searchText)
     //            ProgressView()
     //        }
-        }
+        }.frame(
+            minHeight: 900,
+            maxHeight: .infinity,
+            alignment: .center
+        )
         
     }
 }
