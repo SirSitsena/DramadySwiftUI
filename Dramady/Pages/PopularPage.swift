@@ -14,9 +14,9 @@ struct PopularPage: View {
     @ObservedObject var imageFetcher = ImageFetcher()
     @State var images: [String: UIImage] = [:]
     
-    init () {
-        UITableView.appearance().backgroundColor = .black
-    }
+//    init () {
+//        UITableView.appearance().backgroundColor = .black
+//    }
     
     var body: some View {
         VStack{
@@ -39,18 +39,19 @@ struct PopularPage: View {
                     }
                     
                     Text(movie.title)
+                        .foregroundColor(.white)
                     Text(movie.rank)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
         }
-        .colorMultiply(.purple)
+        .colorScheme(.dark)
         .task {
             Api().fetchPopular { (popularMovies) in
                 self.movies = popularMovies.items
             }
         }
-        }.background(Color.black)
+        }.background(Color.red)
     }
 }
 

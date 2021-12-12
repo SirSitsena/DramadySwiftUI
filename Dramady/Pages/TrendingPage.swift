@@ -12,9 +12,9 @@ struct TrendingPage: View {
     @ObservedObject var imageFetcher = ImageFetcher()
     @State var images: [String: UIImage] = [:]
     
-    init () {
-        UITableView.appearance().backgroundColor = .black
-    }
+//    init () {
+//        UITableView.appearance().backgroundColor = .purple
+//    }
     
 //    @State var image = UIImage()
     var body: some View {
@@ -39,21 +39,20 @@ struct TrendingPage: View {
                     }
 
                     Text(movie.title)
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                     Text(movie.rank)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                //TrendingMovieView()
             }
         }
-        .colorMultiply(.purple)
+        .colorScheme(.dark)
         .task {
             Api().fetchTop250 { (topMovies) in
                 self.movies = topMovies.items
         }
         }
         }
-        .background(Color.purple)
+        .background(Color.green)
     }
 }
 
