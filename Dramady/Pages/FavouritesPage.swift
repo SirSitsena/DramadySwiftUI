@@ -9,9 +9,21 @@ import SwiftUI
 
 struct FavouritesPage: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        VStack{
+            VStack{
+                Text("Hello World")
+            }
+        }
+        .frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .center)
+        .background(Color.red)
 }
+        
+    }
 
 struct FavouritesPage_Previews: PreviewProvider {
     static var previews: some View {
