@@ -82,8 +82,30 @@ class Api: ObservableObject {
             }
         }.resume()
     }
-    //Fetch before a favourite
-    func fetchBeforeSave(id: String) {
-        //
+    
+    func fetchFromTitleID(titleId: String, completion: @escaping (FullMovie) -> ()) {
+        let stringUrl = "https://imdb-api.com/en/API/Title/\(apiKey)/\(titleId)"
+        guard let url = URL(string: stringUrl) else {
+            print("invalid URL") //HANDLE
+            return
+        }
+        URLSession.shared.dataTask(with: url) {data,  response, error  in
+            guard let data = data else {
+                print("Data nil")
+                return
+            }
+            guard let results = try? JSONDecoder().decode(FullMovie.self, from: data) else {
+                print("Couldn't decode data")
+                return
+            }
+            //let results = try! JSONDecoder().decode(FullMovie.self, from: data)
+            DispatchQueue.main.async {
+                completion(results)
+            }
+        }.resume()
     }
+    //Fetch before a favourite
+    //func fetchBeforeSave(id: String) {
+        //
+    //}
 }

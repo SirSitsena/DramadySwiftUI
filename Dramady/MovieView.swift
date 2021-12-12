@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct MovieView: View {
-    //let movie: movie
+    @State var movie: FullMovie?
+    let tId: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if let mov = movie {
+                Text(mov.title)
+                    .font(.title)
+                Text(mov.year)
+                Text(mov.fullTitle)
+                Text(mov.image)
+                Text(mov.releaseDate)
+                Text(mov.runtimeStr)
+                Text(mov.plot)
+                Text(mov.imDbRating)
+                
+            }
+        }.task {
+            Api().fetchFromTitleID(titleId: tId, completion: { (fullMovie) in
+                self.movie = fullMovie
+            })
+        }
     }
 }
 
-struct MovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieView()
-    }
-}
+//struct MovieView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieView()
+//    }
+//}

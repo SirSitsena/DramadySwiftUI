@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A35AD4E276498BB00727D34 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */; };
+		3A35AD502764A78900727D34 /* FullMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD4F2764A78900727D34 /* FullMovie.swift */; };
 		CE3A5355274CE40B003878B2 /* LyricsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A5354274CE40A003878B2 /* LyricsPage.swift */; };
 		CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D042274BBA4300B8E7FC /* DramadyApp.swift */; };
 		CE56D045274BBA4300B8E7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D044274BBA4300B8E7FC /* ContentView.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		3A35AD4F2764A78900727D34 /* FullMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMovie.swift; sourceTree = "<group>"; };
 		CE3A5354274CE40A003878B2 /* LyricsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPage.swift; sourceTree = "<group>"; };
 		CE56D03F274BBA4300B8E7FC /* Dramady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE56D042274BBA4300B8E7FC /* DramadyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramadyApp.swift; sourceTree = "<group>"; };
@@ -107,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A35AD4B2764983C00727D34 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		CE56D036274BBA4300B8E7FC = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 		CE5B99C8274C00CE00BC769D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3A35AD4B2764983C00727D34 /* CoreData */,
 				CED840972753AE9900D47CF7 /* ResultTypes */,
 				CE5B99BE274BE44900BC769D /* Api.swift */,
 			);
@@ -198,6 +211,7 @@
 				CED840982753AEB100D47CF7 /* Search.swift */,
 				CED8409A2753B02800D47CF7 /* TopMovies.swift */,
 				CED8409C2753B03600D47CF7 /* PopularMovies.swift */,
+				3A35AD4F2764A78900727D34 /* FullMovie.swift */,
 			);
 			path = ResultTypes;
 			sourceTree = "<group>";
@@ -335,6 +349,7 @@
 				CE5B99BF274BE44900BC769D /* Api.swift in Sources */,
 				CE56D0AD274BC32600B8E7FC /* MainPage.swift in Sources */,
 				CE56D04C274BBA4400B8E7FC /* Persistence.swift in Sources */,
+				3A35AD502764A78900727D34 /* FullMovie.swift in Sources */,
 				CED8409F2753B87B00D47CF7 /* ImageFetcher.swift in Sources */,
 				CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */,
 				CED8409D2753B03600D47CF7 /* PopularMovies.swift in Sources */,
@@ -347,6 +362,7 @@
 				CE56D04F274BBA4400B8E7FC /* Dramady.xcdatamodeld in Sources */,
 				CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */,
 				CE5B99C1274BECE800BC769D /* MovieView.swift in Sources */,
+				3A35AD4E276498BB00727D34 /* DataModel.xcdatamodeld in Sources */,
 				CE3A5355274CE40B003878B2 /* LyricsPage.swift in Sources */,
 				CED840992753AEB100D47CF7 /* Search.swift in Sources */,
 			);
@@ -705,6 +721,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		3A35AD4C276498BB00727D34 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 3A35AD4D276498BB00727D34 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		CE56D04D274BBA4400B8E7FC /* Dramady.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

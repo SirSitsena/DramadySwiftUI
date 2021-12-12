@@ -11,15 +11,26 @@ struct ResultsPage: View {
     @Binding var searchText: String 
     @State var hasLoaded = false
     @State var movies = [MovieSearch]()
+    @State var fullMovies: [String : FullMovie] = [:]
     var body: some View {
         List(movies) { movie in
-            VStack(alignment: .leading) {
-                Text("Title: " + movie.title)
-                Text("Desc: " + movie.description)
-            }
+            //if let fMovie = self.fullMovies[movie.id] {
+                
+            NavigationLink(destination: MovieView(tId: movie.id)) {
+                    VStack(alignment: .leading) {
+                        Text("Title: " + movie.title)
+                        Text("Desc: " + movie.description)
+                    }
+                }
+            //}
         }.task {
             Api().movieSearch(keyWords: searchText) { (movies) in
                 self.movies = movies.results
+                //for movie in movies.results {
+                    //Api().fetchFromTitleID(titleId: movie.id, completion: { (fullMovie) in
+                      //  self.fullMovies[movie.id] = fullMovie
+                //    })
+                //}
             }
         }
         
