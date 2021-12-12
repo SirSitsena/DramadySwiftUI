@@ -5,6 +5,9 @@
 //  Created by User on 22.11.2021.
 //
 
+
+//(Color.parseColor("#FFFFFF")
+
 import SwiftUI
 import CoreData
 
@@ -16,6 +19,14 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     //@StateObject var apimodel = ApiModel()
+    
+    
+    init() {
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().backgroundColor = .systemYellow
+//        UITabBar.appearance().unselectedItemTintColor = .UICOLOR.parseColor("#FFFFFF")
+    }
+    
 
     var body: some View {
         TabView {
@@ -23,6 +34,7 @@ struct ContentView: View {
                 .tabItem {
                     Text("Main")
                     Image(systemName: "house")
+                        
                 }
             TrendingPage()
                 .tabItem {
@@ -45,6 +57,7 @@ struct ContentView: View {
                     Image(systemName: "clock.fill")
                 }
         }
+        .accentColor(.purple)
     }
 }
 //        NavigationView {
