@@ -4,6 +4,12 @@
 //
 //  Created by User on 22.11.2021.
 //
+/*
+ Rasmus Key: k_1dtwun41  ---- New Api Calls: 13/12/2021
+ Anestis key: k_9t0l0iej ---- New Api Calls: 13/12/2021
+ Anestis2 key: k_rs8s2dp4 ---- New Api Calls: Active
+ */
+
 
 import Foundation
 import Combine
@@ -16,7 +22,7 @@ struct SongSearch: Decodable {
 // Working version, completion handler. needs fixing for simultanous api calls?
 class Api: ObservableObject {
     @Published var lyrics: String = ""
-    let apiKey: String = "k_1dtwun41"
+    let apiKey: String = "k_rs8s2dp4"
     
     // FRANKENSTEIN - Unrelated function loading lyrics of song from artist and title
     func load(artist: String, title: String, completion: @escaping (SongSearch) -> ()) {
