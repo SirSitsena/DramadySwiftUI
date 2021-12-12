@@ -13,17 +13,15 @@ struct MainPage: View {
     
     
     var body: some View {
-        
-        
         VStack{
             NavigationView {
 
                         VStack {
                             Text("Searching for \(searchText)")
+                                .foregroundColor(.yellow)
                                 .searchable(text: $searchText)
                                 .multilineTextAlignment(.leading)
-                                .navigationTitle("Search for movies")
-                            //LOST THE CODE WHEN PULLED THE WRONG WAY
+                                .navigationTitle("Dramady Home")
                             NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
                                 Text("Search!")
                             }
@@ -38,8 +36,7 @@ struct MainPage: View {
                 maxHeight: .infinity,
                 alignment: .center
             )
-    }
-        .background(Color.yellow)//Can Delete
+    }.colorScheme(.dark)
 }
 
 struct MainPage_Previews: PreviewProvider {
