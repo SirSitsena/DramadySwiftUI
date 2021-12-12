@@ -11,8 +11,13 @@ struct MainPage: View {
     @State private var searchText = ""
     @ObservedObject var imagefetcher = ImageFetcher()
     
+    
     var body: some View {
+        
+        
+        VStack{
             NavigationView {
+
                         VStack {
                             Text("Searching for \(searchText)")
                                 .searchable(text: $searchText)
@@ -24,27 +29,17 @@ struct MainPage: View {
                             }
                                 .padding(.top, 25)
                                 .padding(.bottom, 95)
-                            VStack{
-                                HStack{
-                                    Text("Movies searched: 290")
-                                    
-                                }
-                                HStack{
-                                    Text("Favourited movies: 290")
-                                }
-                                HStack{
-                                    Text("Movies in watched: 290")
-                                }
-                            }
-                            .frame(
-                                maxWidth: .infinity,
-                                alignment: .leading
-                            )
                         }
+                
             }
+            .padding(.top, 50)
             .frame(
-                maxHeight: .infinity
+                minHeight: 900,
+                maxHeight: .infinity,
+                alignment: .center
             )
+    }
+        .background(Color.yellow)//Can Delete
 }
 
 struct MainPage_Previews: PreviewProvider {

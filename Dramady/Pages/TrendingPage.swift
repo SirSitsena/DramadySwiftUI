@@ -39,6 +39,7 @@ struct TrendingPage: View {
                     }
 
                     Text(movie.title)
+                        .foregroundColor(.black)
                     Text(movie.rank)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
@@ -52,7 +53,7 @@ struct TrendingPage: View {
         }
         }
         }
-        .background(Color.black)
+        .background(Color.purple)
     }
 }
 

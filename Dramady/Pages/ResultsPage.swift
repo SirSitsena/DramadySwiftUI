@@ -13,44 +13,44 @@ struct ResultsPage: View {
     @State var movies = [MovieSearch]()
     @State var fullMovies: [String : FullMovie] = [:]
     var body: some View {
-        List(movies) { movie in
-            //if let fMovie = self.fullMovies[movie.id] {
-                
-            NavigationLink(destination: MovieView(tId: movie.id)) {
-                    VStack(alignment: .leading) {
-                        Text("Title: " + movie.title)
-                        Text("Desc: " + movie.description)
+        VStack{
+            List(movies) { movie in
+                NavigationLink(destination: MovieView(tId: movie.id)) {
+                        VStack(alignment: .leading) {
+                            Text("Title: " + movie.title)
+                            Text("Year: " + movie.description)
+                        }
                     }
+            }.task {
+                Api().movieSearch(keyWords: searchText) { (movies) in
+                    self.movies = movies.results
+                    //for movie in movies.results {
+                        //Api().fetchFromTitleID(titleId: movie.id, completion: { (fullMovie) in
+                          //  self.fullMovies[movie.id] = fullMovie
+                    //    })
+                    //}
                 }
-            //}
-        }.task {
-            Api().movieSearch(keyWords: searchText) { (movies) in
-                self.movies = movies.results
-                //for movie in movies.results {
-                    //Api().fetchFromTitleID(titleId: movie.id, completion: { (fullMovie) in
-                      //  self.fullMovies[movie.id] = fullMovie
-                //    })
-                //}
             }
+            
+    //        if apiModel.isLoading == false {
+    //
+    //            VStack {
+    //                List {/*
+    //                    ForEach(apiModel.movieResult!.movies, id: \.self.id) {movie in
+    //                        HStack {
+    //                            Text("Title: " + movie.title)
+    //                            Text("Desc: " + movie.description)
+    //                        }
+    //                    }*/
+    //                }
+    //            }
+    //        } else {
+    //            //Validate search?
+    //            //let remote = try! apiModel.SearchMovie(keywords: searchText)
+    //            ProgressView()
+    //        }
         }
         
-//        if apiModel.isLoading == false {
-//
-//            VStack {
-//                List {/*
-//                    ForEach(apiModel.movieResult!.movies, id: \.self.id) {movie in
-//                        HStack {
-//                            Text("Title: " + movie.title)
-//                            Text("Desc: " + movie.description)
-//                        }
-//                    }*/
-//                }
-//            }
-//        } else {
-//            //Validate search?
-//            //let remote = try! apiModel.SearchMovie(keywords: searchText)
-//            ProgressView()
-//        }
     }
 }
 

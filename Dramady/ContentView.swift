@@ -21,6 +21,7 @@ struct ContentView: View {
     //@StateObject var apimodel = ApiModel()
     
     
+    
     init() {
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().backgroundColor = .systemYellow
@@ -29,12 +30,12 @@ struct ContentView: View {
     
 
     var body: some View {
+        
         TabView {
             MainPage()
                 .tabItem {
                     Text("Main")
                     Image(systemName: "house")
-                        
                 }
             TrendingPage()
                 .tabItem {
