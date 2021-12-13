@@ -33,7 +33,8 @@ struct TrendingPage: View {
                                         .resizable()
                                         .frame(width: 50, height: 50, alignment: .leading)
                                 } else if phase.error != nil {
-                                    Color.red
+//                                    Color.red
+                                    ProgressView()
                                 } else {
                                     ProgressView()
                                 }
