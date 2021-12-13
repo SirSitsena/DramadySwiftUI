@@ -18,13 +18,16 @@ struct MainPage: View {
     
     var body: some View {
             NavigationView {
-                Text("Searching for \(searchText)")
-                    .foregroundColor(.yellow)
-                    .searchable(text: $searchText)
-                    .multilineTextAlignment(.leading)
-                    .navigationTitle("Dramady Home")
-                NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
-                    Text("Search!")
+                VStack {
+                    
+                    Text("Searching for \(searchText)")
+                        .foregroundColor(.yellow)
+                        .searchable(text: $searchText)
+                        .multilineTextAlignment(.leading)
+                        .navigationTitle("Dramady Home")
+                    NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
+                        Text("Search!")
+                    }
                 }
                     .padding(.top, 25)
                     .padding(.bottom, 95)

@@ -13,7 +13,7 @@ struct ResultsPage: View {
     @State var movies = [MovieSearch]()
     @State var fullMovies: [String : FullMovie] = [:]
     var body: some View {
-        VStack{
+        NavigationView{
             List(movies) { movie in
                 NavigationLink(destination: MovieView(tId: movie.id)) {
                         VStack(alignment: .leading) {
