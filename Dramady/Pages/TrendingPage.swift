@@ -21,7 +21,7 @@ struct TrendingPage: View {
         NavigationView {
             VStack{
                 Text("Trending Now")
-                    .font(.headline).bold().italic()
+                    .font(.title).bold().italic()
                     .foregroundColor(.yellow)
 
                 List(movies) {movie in
@@ -46,7 +46,7 @@ struct TrendingPage: View {
                         }
                     }
                 }
-//            .padding(.top, 0)
+            .padding(.top, 0)
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
@@ -55,7 +55,7 @@ struct TrendingPage: View {
                 }
             }
             }
-            .frame(minHeight: screenHeight)
+//            .frame(minHeight: screenHeight)
         }.background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())

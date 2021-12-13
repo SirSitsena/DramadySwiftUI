@@ -19,27 +19,46 @@ struct WatchlistPage: View {
         NavigationView {
             VStack {
                 Text("My Watchlist")
-                    .font(.headline).bold().italic()
+                    .font(.title).bold().italic()
                     .foregroundColor(.yellow)
                 Spacer()
                 List(movies) { movie in
                     if movie.isOnWatchlist {
                         NavigationLink(destination: MovieView(tId: movie.titleId!)) {
-                            VStack {
-                                Text(movie.title  ?? "Nothing here")
-                                //Text(movie.id) //?? "No id")
-                                Text(movie.image ??  "No image")
+                            VStack{
+                                HStack{
+                                    Text(movie.title!)
+                                        .font(.title)
+                                        .foregroundColor(.pink)
+                                        .multilineTextAlignment(.center)
+                                }.padding(.bottom, 5)
+                                
+                                HStack{
+                                    Text("Genres: \(movie.genres!)")
+                                        .padding(.leading, 0)
+                                    Spacer()
+                                    
+                                }.padding(.bottom, 5)
+                                
+                                HStack{
+                                    Text("Year: \(movie.year!)")
+                                        .padding(.leading, 0)
+                                    Text("Rating: \(movie.imDbRating!)")
+                                        .padding(.leading, 20)
+                                }.padding(.bottom, 5)
+                                
                             }
+                        }
                         }
                     }
                 }
-            }
         }
         .background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
+
 
 struct WatchlistPage_Previews: PreviewProvider {
     static var previews: some View {

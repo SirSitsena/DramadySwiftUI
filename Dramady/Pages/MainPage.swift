@@ -41,7 +41,7 @@ struct MainPage: View {
                     }
                     
                     NavigationLink(destination: ResultsPage(searchText: self.$searchText), isActive: $searchActive) { EmptyView()}
-                    Spacer()
+//                    Spacer()
                 }
                     .padding(.top, 25)
                     //.padding(.bottom, 95)

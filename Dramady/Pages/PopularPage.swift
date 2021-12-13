@@ -22,7 +22,7 @@ struct PopularPage: View {
         NavigationView {
             VStack{
                 Text("Popular Movies")
-                    .font(.headline).bold().italic()
+                    .font(.title).bold().italic()
                     .foregroundColor(.yellow)
             List(movies, id: \.id) {movie in
                 NavigationLink(destination: MovieView(tId: movie.id)) {
