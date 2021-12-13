@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+let screenSize = UIScreen.main.bounds
+let screenWidth = screenSize.width
+let screenHeight = screenSize.height
+
 struct MainPage: View {
     @State private var searchText = ""
     @ObservedObject var imagefetcher = ImageFetcher()
