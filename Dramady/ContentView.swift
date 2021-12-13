@@ -24,8 +24,7 @@ struct ContentView: View {
     
     init() {
         UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().backgroundColor = .systemYellow
-    }
+        UITabBar.appearance().backgroundColor = .black    }
     
 
     var body: some View {

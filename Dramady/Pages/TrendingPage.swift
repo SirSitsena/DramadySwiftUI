@@ -25,8 +25,7 @@ struct TrendingPage: View {
                     .foregroundColor(.yellow)
 
                 List(movies) {movie in
-                    NavigationLink(destination: MovieView(tId: movie.id))
-                    {
+                    NavigationLink(destination: MovieView(tId: movie.id)){
                         HStack{
                             AsyncImage(url: URL(string: movie.image)) { phase in
                                 if let image = phase.image {

@@ -56,7 +56,6 @@ struct PopularPage: View {
                     self.movies = popularMovies.items
                 }
             }
-                Spacer()
             }//.background(Color.red)
         }
         .background(Color.black)
