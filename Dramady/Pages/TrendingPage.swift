@@ -12,11 +12,21 @@ struct TrendingPage: View {
     @ObservedObject var imageFetcher = ImageFetcher()
     @State var images: [String: UIImage] = [:]
     
-//    init () {
-//        UITableView.appearance().backgroundColor = .purple
-//    }
+    @State public var intStatus = false
     
-//    @State var image = UIImage()
+    func status(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       intStatus = true
+                       print("Internet connection is on.")
+                   } else {
+                       intStatus = false
+                       print("There's no internet connection.")
+                   }
+               }
+               monitor.start(queue: queue)
+    }
+    
     var body: some View {
         NavigationView {
             VStack{
@@ -50,12 +60,19 @@ struct TrendingPage: View {
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
-                Api().fetchTop250 { (topMovies) in
-                    self.movies = topMovies.items
+                intStatus = false
+                status()
+                if intStatus == true{
+                    Api().fetchTop250 { (topMovies) in
+                        self.movies = topMovies.items
+                        intStatus = false
+                    }
+                } else {
+                    status()
                 }
+                
             }
             }
-//            .frame(minHeight: screenHeight)
         }.background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())

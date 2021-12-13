@@ -17,6 +17,21 @@ struct MainPage: View {
     @State private var presentAlert: Bool = false
     @State private var alertText: String = ""
     
+    @State public var intStatus = false
+    
+    func status(){
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+                   if pathUpdateHandler.status == .satisfied {
+                       intStatus = true
+                       print("Internet connection is on.")
+                   } else {
+                       intStatus = false
+                       print("There's no internet connection.")
+                   }
+               }
+               monitor.start(queue: queue)
+    }
+    
     
     var body: some View {
             NavigationView {
@@ -28,12 +43,31 @@ struct MainPage: View {
                         .multilineTextAlignment(.leading)
                         .navigationTitle(Text("Dramady"))
                     Button {
-                        //Validate
-                        if self.searchText == "" {
-                            self.alertText = "Please enter keywords before searching"
+                        status()
+//                        if intStatus == false{
+//                            self.alertText = "No internet connection"
+//                            self.presentAlert = true
+//                            self.searchActive = false
+//                        } else {
+//                            if intStatus == true{
+//                                self.searchActive = true
+//                            }
+//                        }
+//                        //Validate
+                        if (self.searchText == "")||(intStatus == false) {
+                            self.alertText = """
+                                            Please enter keywords before searching and internet connection
+                                            """
                             self.presentAlert = true
+                            self.searchActive = false
+                            intStatus = false
+                            status()
                         } else {
-                            self.searchActive = true
+                            if intStatus == true{
+                                self.searchActive = true
+                                status()
+                            }
+                            
                         }
                         
                     } label : {
@@ -44,7 +78,6 @@ struct MainPage: View {
 //                    Spacer()
                 }
                     .padding(.top, 25)
-                    //.padding(.bottom, 95)
             }
             .background(Color.black)
             .navigationViewStyle(StackNavigationViewStyle())
