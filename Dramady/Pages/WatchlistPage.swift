@@ -18,24 +18,28 @@ struct WatchlistPage: View {
     
     var body: some View {
         NavigationView {
-            List(movies) { movie in
-                if movie.isOnWatchlist {
-                    NavigationLink(destination: MovieView(tId: movie.titleId!)) {
-                        VStack {
-                            Text(movie.title  ?? "Nothing here")
-                            //Text(movie.id) //?? "No id")
-                            Text(movie.image ??  "No image")
+            VStack {
+                Text("My Watchlist")
+                    .font(.headline).bold().italic()
+                    .foregroundColor(.yellow)
+                Spacer()
+                List(movies) { movie in
+                    if movie.isOnWatchlist {
+                        NavigationLink(destination: MovieView(tId: movie.titleId!)) {
+                            VStack {
+                                Text(movie.title  ?? "Nothing here")
+                                //Text(movie.id) //?? "No id")
+                                Text(movie.image ??  "No image")
+                            }
                         }
+                        
                     }
-                    
                 }
             }
-            .navigationBarTitle(Text("Watchlist"))
-        }.frame(
-            minHeight: 900,
-            maxHeight: .infinity,
-            alignment: .center
-        )
+        }
+        .background(Color.black)
+        .frame(minHeight: screenHeight)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

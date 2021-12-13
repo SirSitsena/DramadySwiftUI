@@ -24,9 +24,9 @@ struct TrendingPage: View {
                     .font(.headline).bold().italic()
                     .foregroundColor(.yellow)
 
-            List(movies) {movie in
-                NavigationLink(destination: MovieView(tId: movie.id))
-                {
+                List(movies) {movie in
+                    NavigationLink(destination: MovieView(tId: movie.id))
+                    {
                         HStack{
                             AsyncImage(url: URL(string: movie.image)) { phase in
                                 if let image = phase.image {
@@ -45,8 +45,8 @@ struct TrendingPage: View {
                             Text(movie.rank)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
+                    }
                 }
-            }
             .padding(.top, 0)
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
@@ -56,7 +56,7 @@ struct TrendingPage: View {
                 }
             }
             }
-        }
+        }.background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())
         

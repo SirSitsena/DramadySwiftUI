@@ -15,11 +15,6 @@ struct MovieView: View {
     
     @State var presentAlert: Bool = false
     @State var alertText: String = ""
-    //let fetchRequest:NSFetchRequest<LocalMovie> = LocalMovie.fetchRequest()
-    
-    //@FetchRequest(entity: LocalMovie.entity(), sortDescriptors: []) var localMovies: FetchRequest<LocalMovie>
-
-    //@FetchRequest(entity: Movie.entity(), sortDesciptors: []) var localMovies: FetchRequest<Movie>
     
     @State var movie: FullMovie?
     //@State var localMovie: Movie?
@@ -37,7 +32,7 @@ struct MovieView: View {
                                 .aspectRatio(contentMode: .fit)
 //                                .frame(width: 200, height: 200, alignment: .leading)
                         } else if phase.error != nil {
-                            Color.red
+                            ProgressView()
                         } else {
                             ProgressView()
                             //Color.blue
@@ -82,6 +77,8 @@ struct MovieView: View {
                         } catch {
                             print("error favouriting")
                         }
+                        self.alertText = "Added to favourites"
+                        self.presentAlert = true
                     } label: {
                         Text("Save to favourites")
                     }
@@ -117,6 +114,8 @@ struct MovieView: View {
                             } catch {
                                 print("error adding to toWatchlist")
                             }
+                            self.alertText = "Added to watchlist"
+                            self.presentAlert = true
                         }
                         
                     } label: {
@@ -131,7 +130,7 @@ struct MovieView: View {
                 })
             }
             .alert(isPresented: $presentAlert) {
-                Alert(title: Text("Already added"), message: Text(self.alertText), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Alert!"), message: Text(self.alertText), dismissButton: .default(Text("OK")))
             }
         //}.frame(
         //    minHeight: 810,

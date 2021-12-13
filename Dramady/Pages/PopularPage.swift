@@ -56,8 +56,10 @@ struct PopularPage: View {
                     self.movies = popularMovies.items
                 }
             }
+                Spacer()
             }//.background(Color.red)
         }
+        .background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())
         

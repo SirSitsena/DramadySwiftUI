@@ -36,6 +36,7 @@ struct ContentView: View {
                     Text("Main")
                     Image(systemName: "house")
                 }
+                .colorScheme(.dark)
             TrendingPage()
                 .tabItem {
                     Text("Trending")

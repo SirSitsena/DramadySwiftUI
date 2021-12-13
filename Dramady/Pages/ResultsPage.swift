@@ -9,9 +9,7 @@ import SwiftUI
 
 struct ResultsPage: View {
     @Binding var searchText: String 
-    @State var hasLoaded = false
     @State var movies = [MovieSearch]()
-    @State var fullMovies: [String : FullMovie] = [:]
     var body: some View {
         NavigationView{
             List(movies) { movie in
@@ -26,7 +24,9 @@ struct ResultsPage: View {
                     self.movies = movies.results
                 }
             }
-        }.frame(
+        }
+        .background(Color.black)
+        .frame(
             minHeight: 900,
             maxHeight: .infinity,
             alignment: .center

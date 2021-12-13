@@ -24,24 +24,18 @@ struct MainPage: View {
                         .foregroundColor(.yellow)
                         .searchable(text: $searchText)
                         .multilineTextAlignment(.leading)
-                        .navigationTitle("Dramady Home")
+                        .navigationTitle(Text("Dramady"))
                     NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
                         Text("Search!")
                     }
+                    Spacer()
                 }
                     .padding(.top, 25)
-                    .padding(.bottom, 95)
-            }
+                    //.padding(.bottom, 95)
+            }.background(Color.black)
             .navigationViewStyle(StackNavigationViewStyle())
             .colorScheme(.dark)
-//            .frame(
-//            minHeight: screenHeight,
-//            maxHeight: .infinity,
-//            alignment: .center
-//            )
-}
-
-
+    }
 }
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
