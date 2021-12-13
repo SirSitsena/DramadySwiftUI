@@ -22,10 +22,10 @@ struct PopularPage: View {
         NavigationView {
             VStack{
                 Text("Popular Movies")
+                    .font(.headline).bold().italic()
                     .foregroundColor(.yellow)
             List(movies, id: \.id) {movie in
                 NavigationLink(destination: MovieView(tId: movie.id)) {
-                    VStack {
                         HStack{
                             AsyncImage(url: URL(string: movie.image)) { phase in
                                 if let image = phase.image {
@@ -46,17 +46,20 @@ struct PopularPage: View {
                             Text(movie.rank)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
-                    }
                 }
             }
+            .padding(.top, 0)
+            .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
                 Api().fetchPopular { (popularMovies) in
                     self.movies = popularMovies.items
                 }
             }
-            }.background(Color.red)
-        }.navigationBarTitleDisplayMode(.inline)
+            }//.background(Color.red)
+        }
+        .frame(minHeight: screenHeight)
+        .navigationViewStyle(StackNavigationViewStyle())
         
     }
 }
