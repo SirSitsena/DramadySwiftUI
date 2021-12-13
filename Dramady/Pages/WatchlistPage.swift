@@ -17,14 +17,12 @@ struct WatchlistPage: View {
     
     
     var body: some View {
-            VStack{
-                List(movies) { movie in
-                    if movie.isOnWatchlist {
-                        VStack {
-                            Text(movie.title  ?? "Nothing here")
-                            //Text(movie.id) //?? "No id")
-                            Text(movie.image ??  "No image")
-                        }
+            List(movies) { movie in
+                if movie.isOnWatchlist {
+                    VStack {
+                        Text(movie.title  ?? "Nothing here")
+                        //Text(movie.id) //?? "No id")
+                        Text(movie.image ??  "No image")
                     }
                 }
             }

@@ -24,31 +24,8 @@ struct ResultsPage: View {
             }.task {
                 Api().movieSearch(keyWords: searchText) { (movies) in
                     self.movies = movies.results
-                    //for movie in movies.results {
-                        //Api().fetchFromTitleID(titleId: movie.id, completion: { (fullMovie) in
-                          //  self.fullMovies[movie.id] = fullMovie
-                    //    })
-                    //}
                 }
             }
-            
-    //        if apiModel.isLoading == false {
-    //
-    //            VStack {
-    //                List {/*
-    //                    ForEach(apiModel.movieResult!.movies, id: \.self.id) {movie in
-    //                        HStack {
-    //                            Text("Title: " + movie.title)
-    //                            Text("Desc: " + movie.description)
-    //                        }
-    //                    }*/
-    //                }
-    //            }
-    //        } else {
-    //            //Validate search?
-    //            //let remote = try! apiModel.SearchMovie(keywords: searchText)
-    //            ProgressView()
-    //        }
         }.frame(
             minHeight: 900,
             maxHeight: .infinity,

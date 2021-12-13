@@ -41,11 +41,13 @@ struct ContentView: View {
                     Text("Trending")
                     Image(systemName: "arrow.uturn.up")
                 }
+                .colorScheme(.dark)
             PopularPage()
                 .tabItem {
                     Text("Popular")
                     Image(systemName: "star")
                 }
+                .colorScheme(.dark)
             FavouritesPage()
                 .tabItem {
                     Text("Favourites")

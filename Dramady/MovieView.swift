@@ -10,8 +10,12 @@ import CoreData
 
 struct MovieView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     
-    let fetchRequest:NSFetchRequest<LocalMovie> = LocalMovie.fetchRequest()
+    
+    @State var presentAlert: Bool = false
+    @State var alertText: String = ""
+    //let fetchRequest:NSFetchRequest<LocalMovie> = LocalMovie.fetchRequest()
     
     //@FetchRequest(entity: LocalMovie.entity(), sortDescriptors: []) var localMovies: FetchRequest<LocalMovie>
 
@@ -21,7 +25,7 @@ struct MovieView: View {
     //@State var localMovie: Movie?
     let tId: String
     var body: some View {
-        List{
+        //List{
             VStack {
                 if let mov = movie {
                     Text(mov.title)
@@ -46,9 +50,17 @@ struct MovieView: View {
                     .padding(.bottom, 15)
                     Text("Movie length: \(mov.runtimeStr)")
                         .padding(.bottom, 15)
-                    Text(mov.plot)
                     Button {
-                        print(fetchRequest)
+                        var alreadyOnlist = false
+                        for aMovie in movies {
+                            if aMovie.titleId == mov.id {
+                                alreadyOnlist = true
+                            }
+                        }
+                        if alreadyOnlist {
+                            self.alertText = "Movie already favourited"
+                            self.presentAlert = true
+                        }
                         let newFavourite = LocalMovie(context: viewContext)
                         newFavourite.isFavourited = true
                         newFavourite.isOnWatchlist = false
@@ -74,41 +86,59 @@ struct MovieView: View {
                         Text("Save to favourites")
                     }
                     Button {
-                        let newToWatch = LocalMovie(context: viewContext)
-                        newToWatch.isFavourited = true
-                        newToWatch.isOnWatchlist = false
-                        newToWatch.imDbRating = mov.imDbRating
-                        newToWatch.runtimeStr = mov.runtimeStr
-                        newToWatch.fullTitle = mov.fullTitle
-                        newToWatch.awards = mov.awards
-                        newToWatch.genres = mov.genres
-                        newToWatch.plot = mov.plot
-                        newToWatch.keywords = mov.keywords
-                        newToWatch.directors = mov.directors
-                        newToWatch.year = mov.year
-                        newToWatch.tagline = mov.tagline
-                        newToWatch.title = mov.title
-                        newToWatch.image = mov.image
-                        newToWatch.titleId = mov.id
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            print("error adding to toWatchlist")
+                        var alreadyOnlist = false
+                        for aMov in movies {
+                            if aMov.titleId == mov.id {
+                                alreadyOnlist = true
+                            }
                         }
+                        if alreadyOnlist {
+                            self.alertText = "Already on watchlist"
+                            self.presentAlert = true
+                        } else {
+                            let newToWatch = LocalMovie(context: viewContext)
+                            newToWatch.isFavourited = false
+                            newToWatch.isOnWatchlist = true
+                            newToWatch.imDbRating = mov.imDbRating
+                            newToWatch.runtimeStr = mov.runtimeStr
+                            newToWatch.fullTitle = mov.fullTitle
+                            newToWatch.awards = mov.awards
+                            newToWatch.genres = mov.genres
+                            newToWatch.plot = mov.plot
+                            newToWatch.keywords = mov.keywords
+                            newToWatch.directors = mov.directors
+                            newToWatch.year = mov.year
+                            newToWatch.tagline = mov.tagline
+                            newToWatch.title = mov.title
+                            newToWatch.image = mov.image
+                            newToWatch.titleId = mov.id
+                            do {
+                                try viewContext.save()
+                            } catch {
+                                print("error adding to toWatchlist")
+                            }
+                        }
+                        
                     } label: {
                         Text("Add to watchlist")
                     }
+                    Text(mov.plot)
+                    
                 }
             }.task {
                 Api().fetchFromTitleID(titleId: tId, completion: { (fullMovie) in
                     self.movie = fullMovie
                 })
             }
-        }.frame(
-            minHeight: 810,
-            maxHeight: .infinity,
-            alignment: .center
-        )
+            .alert(isPresented: $presentAlert) {
+                Alert(title: Text("Already added"), message: Text(self.alertText), dismissButton: .default(Text("OK")))
+            }
+        //}.frame(
+        //    minHeight: 810,
+        //    maxHeight: .infinity,
+        //    alignment: .center
+        //)
+        Spacer()
         
     }
 }

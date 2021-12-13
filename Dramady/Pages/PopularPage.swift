@@ -19,39 +19,44 @@ struct PopularPage: View {
 //    }
     
     var body: some View {
-        VStack{
-            Text("Popular Movies")
-                .foregroundColor(.yellow)
-        List(movies, id: \.id) {movie in
-            VStack {
-                HStack{
-                    AsyncImage(url: URL(string: movie.image)) { phase in
-                        if let image = phase.image {
-                            image
-                                .resizable()
-                                .frame(width: 50, height: 50, alignment: .leading)
-                        } else if phase.error != nil {
-                            Color.red
-                        } else {
-                            ProgressView()
-                            //Color.blue
+        NavigationView {
+            VStack{
+                Text("Popular Movies")
+                    .foregroundColor(.yellow)
+            List(movies, id: \.id) {movie in
+                NavigationLink(destination: MovieView(tId: movie.id)) {
+                    VStack {
+                        HStack{
+                            AsyncImage(url: URL(string: movie.image)) { phase in
+                                if let image = phase.image {
+                                    image
+                                        .resizable()
+                                        .frame(width: 50, height: 50, alignment: .leading)
+                                } else if phase.error != nil {
+                                    Color.red
+                                } else {
+                                    ProgressView()
+                                    //Color.blue
+                                }
+                            }
+                            
+                            Text(movie.title)
+                                .foregroundColor(.white)
+                            Text(movie.rank)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
                         }
                     }
-                    
-                    Text(movie.title)
-                        .foregroundColor(.white)
-                    Text(movie.rank)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
-        }
-        .colorScheme(.dark)
-        .task {
-            Api().fetchPopular { (popularMovies) in
-                self.movies = popularMovies.items
+            .colorScheme(.dark)
+            .task {
+                Api().fetchPopular { (popularMovies) in
+                    self.movies = popularMovies.items
+                }
             }
-        }
-        }.background(Color.red)
+            }.background(Color.red)
+        }.navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
