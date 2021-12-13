@@ -14,24 +14,20 @@ let screenHeight = screenSize.height
 struct MainPage: View {
     @State private var searchText = ""
     @ObservedObject var imagefetcher = ImageFetcher()
-    
-    
     var body: some View {
             NavigationView {
                 VStack {
-                    
                     Text("Searching for \(searchText)")
                         .foregroundColor(.yellow)
                         .searchable(text: $searchText)
                         .multilineTextAlignment(.leading)
-                        .navigationTitle(Text("Dramady"))
+                        .navigationTitle(Text("New movie search"))
                     NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
                         Text("Search!")
                     }
-                    Spacer()
+//                    Spacer()
                 }
                     .padding(.top, 25)
-                    //.padding(.bottom, 95)
             }.background(Color.black)
             .navigationViewStyle(StackNavigationViewStyle())
             .colorScheme(.dark)

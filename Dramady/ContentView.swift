@@ -28,40 +28,42 @@ struct ContentView: View {
     
 
     var body: some View {
+//        VStack{
+            TabView {
+                MainPage()
+                    .tabItem {
+                        Text("Main")
+                        Image(systemName: "house")
+                    }
+                    .colorScheme(.dark)
+                TrendingPage()
+                    .tabItem {
+                        Text("Trending")
+                        Image(systemName: "arrow.uturn.up")
+                    }
+                    .colorScheme(.dark)
+                PopularPage()
+                    .tabItem {
+                        Text("Popular")
+                        Image(systemName: "star")
+                    }
+                    .colorScheme(.dark)
+                FavouritesPage()
+                    .tabItem {
+                        Text("Favourites")
+                        Image(systemName: "heart")
+                    }
+                    .colorScheme(.dark)
+                WatchlistPage()
+                    .tabItem {
+                        Text("Watchlist")
+                        Image(systemName: "clock.fill")
+                    }
+                    .colorScheme(.dark)
+            }
+            .accentColor(.purple)
+//        }
         
-        TabView {
-            MainPage()
-                .tabItem {
-                    Text("Main")
-                    Image(systemName: "house")
-                }
-                .colorScheme(.dark)
-            TrendingPage()
-                .tabItem {
-                    Text("Trending")
-                    Image(systemName: "arrow.uturn.up")
-                }
-                .colorScheme(.dark)
-            PopularPage()
-                .tabItem {
-                    Text("Popular")
-                    Image(systemName: "star")
-                }
-                .colorScheme(.dark)
-            FavouritesPage()
-                .tabItem {
-                    Text("Favourites")
-                    Image(systemName: "heart")
-                }
-                .colorScheme(.dark)
-            WatchlistPage()
-                .tabItem {
-                    Text("Watchlist")
-                    Image(systemName: "clock.fill")
-                }
-                .colorScheme(.dark)
-        }
-        .accentColor(.purple)
     }
 }
 //        NavigationView {

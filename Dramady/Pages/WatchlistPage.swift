@@ -15,7 +15,6 @@ struct WatchlistPage: View {
         UITableView.appearance().backgroundColor = .black
     }
     
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -32,7 +31,6 @@ struct WatchlistPage: View {
                                 Text(movie.image ??  "No image")
                             }
                         }
-                        
                     }
                 }
             }

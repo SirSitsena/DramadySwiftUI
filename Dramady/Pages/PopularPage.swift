@@ -57,7 +57,9 @@ struct PopularPage: View {
                 }
             }
             }//.background(Color.red)
+//            .frame(minHeight: screenHeight)
         }
+        
         .background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())

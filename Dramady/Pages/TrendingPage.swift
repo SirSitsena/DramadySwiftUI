@@ -46,7 +46,7 @@ struct TrendingPage: View {
                         }
                     }
                 }
-            .padding(.top, 0)
+//            .padding(.top, 0)
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
@@ -55,6 +55,7 @@ struct TrendingPage: View {
                 }
             }
             }
+            .frame(minHeight: screenHeight)
         }.background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())

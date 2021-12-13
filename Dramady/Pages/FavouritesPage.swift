@@ -33,10 +33,6 @@ struct FavouritesPage: View {
                         }
                     }
                 }
-                    //.padding(.top, 0)
-                    //.listStyle(InsetGroupedListStyle())
-                    //.colorScheme(.dark)
-                //Spacer()
             }
         }
         .background(Color.black)

@@ -10,26 +10,32 @@ import SwiftUI
 struct ResultsPage: View {
     @Binding var searchText: String 
     @State var movies = [MovieSearch]()
+    
     var body: some View {
-        VStack{
-            List(movies) { movie in
-                NavigationLink(destination: MovieView(tId: movie.id)) {
-                        VStack(alignment: .leading) {
-                            Text("Title: " + movie.title)
-                            Text("Year: " + movie.description)
+        NavigationView{
+            VStack{
+                List(movies) { movie in
+                    NavigationLink(destination: MovieView(tId: movie.id)) {
+                            VStack(alignment: .leading) {
+                                Text("Title: " + movie.title)
+                                Text("Year: " + movie.description)
+                            }
                         }
+                }.task {
+                    Api().movieSearch(keyWords: searchText) { (movies) in
+                        self.movies = movies.results
                     }
-            }.task {
-                Api().movieSearch(keyWords: searchText) { (movies) in
-                    self.movies = movies.results
                 }
-            }
+            }.navigationBarTitle("Search results:")
+            .frame(minHeight: screenHeight)
+            .padding(.top, 0)
+            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.black)
+
         .frame(
-            minHeight: 900,
-            maxHeight: .infinity,
-            alignment: .center
+            minHeight: screenHeight
         )
         
     }
