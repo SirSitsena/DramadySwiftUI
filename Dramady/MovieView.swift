@@ -189,6 +189,8 @@ struct MovieView: View {
                         
                     }
                 }
+                
+                
             }.task {
                 for localMov in movies {
                     if localMov.titleId == tId {

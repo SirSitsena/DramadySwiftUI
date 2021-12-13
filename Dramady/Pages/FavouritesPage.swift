@@ -25,10 +25,10 @@ struct FavouritesPage: View {
                 List(movies) { movie in
                     if movie.isFavourited, movie.titleId != nil {
                         NavigationLink(destination: MovieView(tId: movie.titleId!)) {
-                            VStack {
+                            HStack {
                                 Text(movie.title  ?? "Nothing here")
                                 //Text(movie.id) //?? "No id")
-                                Text(movie.image ??  "No image")
+                                Text(movie.imDbRating ??  "No rating")
                             }
                         }
                     }
