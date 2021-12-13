@@ -17,35 +17,31 @@ struct MainPage: View {
     
     
     var body: some View {
-        VStack{
             NavigationView {
-
-                        VStack {
-                            Text("Searching for \(searchText)")
-                                .foregroundColor(.yellow)
-                                .searchable(text: $searchText)
-                                .multilineTextAlignment(.leading)
-                                .navigationTitle("Dramady Home")
-                            NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
-                                Text("Search!")
-                            }
-                                .padding(.top, 25)
-                                .padding(.bottom, 95)
-                        }
-                
+                Text("Searching for \(searchText)")
+                    .foregroundColor(.yellow)
+                    .searchable(text: $searchText)
+                    .multilineTextAlignment(.leading)
+                    .navigationTitle("Dramady Home")
+                NavigationLink(destination: ResultsPage(searchText: self.$searchText)) {
+                    Text("Search!")
+                }
+                    .padding(.top, 25)
+                    .padding(.bottom, 95)
             }
-            .padding(.top, 50)
-            .frame(
-                minHeight: 900,
-                maxHeight: .infinity,
-                alignment: .center
-            )
-    }.colorScheme(.dark)
+            .navigationViewStyle(StackNavigationViewStyle())
+            .colorScheme(.dark)
+//            .frame(
+//            minHeight: screenHeight,
+//            maxHeight: .infinity,
+//            alignment: .center
+//            )
 }
 
+
+}
 struct MainPage_Previews: PreviewProvider {
     static var previews: some View {
         MainPage()
     }
-}
 }
