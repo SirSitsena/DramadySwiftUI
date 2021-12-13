@@ -11,7 +11,7 @@ struct ResultsPage: View {
     @Binding var searchText: String 
     @State var movies = [MovieSearch]()
     var body: some View {
-        NavigationView{
+        VStack{
             List(movies) { movie in
                 NavigationLink(destination: MovieView(tId: movie.id)) {
                         VStack(alignment: .leading) {
