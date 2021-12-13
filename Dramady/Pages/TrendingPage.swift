@@ -21,11 +21,12 @@ struct TrendingPage: View {
         NavigationView {
             VStack{
                 Text("Trending Now")
+                    .font(.headline).bold().italic()
                     .foregroundColor(.yellow)
+
             List(movies) {movie in
                 NavigationLink(destination: MovieView(tId: movie.id))
                 {
-                    VStack {
                         HStack{
                             AsyncImage(url: URL(string: movie.image)) { phase in
                                 if let image = phase.image {
@@ -44,9 +45,10 @@ struct TrendingPage: View {
                             Text(movie.rank)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }
-                    }
                 }
             }
+            .padding(.top, 0)
+            .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
                 Api().fetchTop250 { (topMovies) in
@@ -54,8 +56,9 @@ struct TrendingPage: View {
                 }
             }
             }
-            .background(Color.green)
         }
+        .frame(minHeight: screenHeight)
+        .navigationViewStyle(StackNavigationViewStyle())
         
     }
 }
