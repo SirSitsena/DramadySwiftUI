@@ -17,22 +17,25 @@ struct WatchlistPage: View {
     
     
     var body: some View {
+        NavigationView {
             List(movies) { movie in
                 if movie.isOnWatchlist {
-                    VStack {
-                        Text(movie.title  ?? "Nothing here")
-                        //Text(movie.id) //?? "No id")
-                        Text(movie.image ??  "No image")
+                    NavigationLink(destination: MovieView(tId: movie.titleId!)) {
+                        VStack {
+                            Text(movie.title  ?? "Nothing here")
+                            //Text(movie.id) //?? "No id")
+                            Text(movie.image ??  "No image")
+                        }
                     }
+                    
                 }
             }
-            .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .center)
-            .background(Color.red)
+            .navigationBarTitle(Text("Watchlist"))
+        }.frame(
+            minHeight: 900,
+            maxHeight: .infinity,
+            alignment: .center
+        )
     }
 }
 

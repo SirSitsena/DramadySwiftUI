@@ -53,11 +53,13 @@ struct ContentView: View {
                     Text("Favourites")
                     Image(systemName: "heart")
                 }
+                .colorScheme(.dark)
             WatchlistPage()
                 .tabItem {
                     Text("Watchlist")
                     Image(systemName: "clock.fill")
                 }
+                .colorScheme(.dark)
         }
         .accentColor(.purple)
     }

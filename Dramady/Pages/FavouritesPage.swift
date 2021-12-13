@@ -11,22 +11,33 @@ struct FavouritesPage: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     var body: some View {
-        List(movies) { movie in
-            if movie.isFavourited {
-                VStack {
-                    Text(movie.title  ?? "Nothing here")
-                    //Text(movie.id) //?? "No id")
-                    Text(movie.image ??  "No image")
+        NavigationView {
+            List(movies) { movie in
+                if movie.isFavourited, movie.titleId != nil {
+                    NavigationLink(destination: MovieView(tId: movie.titleId!)) {
+                        VStack {
+                            Text(movie.title  ?? "Nothing here")
+                            //Text(movie.id) //?? "No id")
+                            Text(movie.image ??  "No image")
+                        }
+                    }
                 }
             }
+            //.frame(
+            //    minWidth: 0,
+            //    maxWidth: .infinity,
+            //    minHeight: 0,
+            //    maxHeight: .infinity,
+            //    alignment: .center)
+            //.background(Color.red)
+            .navigationBarTitle(Text("Favourites"))
         }
         .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
+            minHeight: 900,
             maxHeight: .infinity,
-            alignment: .center)
-        .background(Color.red)
+            alignment: .center
+        )
+        
 }
         
     }
