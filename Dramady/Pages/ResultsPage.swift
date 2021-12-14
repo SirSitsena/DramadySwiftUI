@@ -14,26 +14,31 @@ struct ResultsPage: View {
     var body: some View {
         NavigationView{
             VStack{
-                List(movies) { movie in
-                    NavigationLink(destination: MovieView(tId: movie.id)) {
-                            VStack(alignment: .leading) {
-                                Text("Title: " + movie.title)
-                                Text("Year: " + movie.description)
+                if movies.isEmpty {
+                    Text("Please check your internet connection").font(.title)
+                    ProgressView()
+                } else {
+                    List(movies) { movie in
+                        NavigationLink(destination: MovieView(tId: movie.id)) {
+                                VStack(alignment: .leading) {
+                                    Text("Title: " + movie.title)
+                                    Text("Year: " + movie.description)
+                                }
                             }
-                        }
-                }.task {
-                    Api().movieSearch(keyWords: searchText) { (movies) in
-                        self.movies = movies.results
                     }
                 }
-            }.navigationBarTitle("Search results:")
+            }.task {
+                Api().movieSearch(keyWords: searchText) { (movies) in
+                    self.movies = movies.results
+                }
+            }
+            .navigationBarTitle("Search results:")
             .frame(minHeight: screenHeight)
             .padding(.top, 0)
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.black)
-
         .frame(
             minHeight: screenHeight
         )

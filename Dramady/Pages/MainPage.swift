@@ -72,6 +72,7 @@ struct MainPage: View {
                         Text("Welcome to dramady!").font(.title)
                         Text("On this app you will have an easy way of storing your favourite movie's information, If  you would like you can save a movie to your favourites or simply add it to the watchlist. You can start off by trying to search for a movie of your choice in the bar above.")
                             .font(.body)
+                        Divider()
                         Text("Thank you for using Dramady").font(.title3)
                     }
                 }
