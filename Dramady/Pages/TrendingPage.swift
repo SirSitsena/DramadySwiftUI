@@ -9,22 +9,7 @@ import SwiftUI
 
 struct TrendingPage: View {
     @State private var movies = [topMovie]()
-    
-    @State public var intStatus = false
-    
-    //func status(){
-    //    monitor.pathUpdateHandler = { pathUpdateHandler in
-    //               if pathUpdateHandler.status == .satisfied {
-    //                   intStatus = true
-    //                   print("Internet connection is on.")
-    //               } else {
-    //                   intStatus = false
-    //                   print("There's no internet connection.")
-    //               }
-    //           }
-    //           monitor.start(queue: queue)
-    //}
-    
+
     var body: some View {
         NavigationView {
             VStack{

@@ -48,17 +48,25 @@ class DramadyTests: XCTestCase {
     
     func testSearchTextValidation() throws {
         let conf = Configuration()
-        XCTAssert(conf.inputEmptyCheckConf(searchText: "") == "")
-        XCTAssert(conf.inputEmptyCheckConf(searchText: "   ") == "")
-        XCTAssert(conf.inputEmptyCheckConf(searchText: "Harry") == "Harry")
-        XCTAssert(conf.inputEmptyCheckConf(searchText: "  Harry  12") == "  Harry  12")
+        XCTAssert(conf.inputEmptyCheck(searchText: ""))
+        XCTAssert(conf.inputEmptyCheck(searchText: "    "))
+        XCTAssertFalse(conf.inputEmptyCheck(searchText: "searchText2"))
+        XCTAssertFalse(conf.inputEmptyCheck(searchText: "   searchText3   "))
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+    func testWatchListStatus() throws {
+        let conf = Configuration()
+        XCTAssertTrue(conf.watchListStatus(isOnWatchList: true) == "clock.fill")
+        XCTAssertTrue(conf.watchListStatus(isOnWatchList: false) == "clock")
     }
+    
+    func testFavListStatus() throws {
+        let conf = Configuration()
+        XCTAssertTrue(conf.favListStatus(isOnFavList: true) == "heart.fill")
+        XCTAssertTrue(conf.favListStatus(isOnFavList: false) == "heart")
+    }
+    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

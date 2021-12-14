@@ -10,7 +10,7 @@ import SwiftUI
 struct FavouritesPage: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
-    
+    let config = Configuration()
     init () {
         UITableView.appearance().backgroundColor = .black
     }
@@ -44,7 +44,10 @@ struct FavouritesPage: View {
                                 HStack{
                                     Text("Year: \(movie.year!)")
                                         .padding(.leading, 0)
-                                    Text("Rating: \(movie.imDbRating!)")
+                                    Spacer()
+                                    Image(systemName:config.watchListStatus(isOnWatchList: movie.isOnWatchlist))
+                                    Spacer()
+                                    Text("Rating: \(config.checkValidText(value: movie.imDbRating!))")
                                         .padding(.leading, 20)
                                 }.padding(.bottom, 5)
                                 

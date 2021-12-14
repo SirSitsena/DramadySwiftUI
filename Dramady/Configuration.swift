@@ -9,7 +9,7 @@ import Foundation
 
 class Configuration {
     
-    func checkValidText(value: String?) -> String{
+    func checkValidText( value: String? ) -> String {
         if let val = value {
             if val != "" {
                 return val
@@ -18,7 +18,7 @@ class Configuration {
         return "N/A"
     }
     
-    func tabIcon(name: String ) -> String {
+    func tabIcon( name: String ) -> String {
         let low = name.lowercased()
         switch low {
         case "main":
@@ -36,17 +36,30 @@ class Configuration {
         }
     }
     
-    func inputEmptyCheckConf( searchText: String ) -> String {
+    func inputEmptyCheck( searchText: String ) -> Bool {
                 
         // Check empty string
-        if searchText.isEmpty {
-            return ""
-        }
-        // Trim and check empty string
-        if (searchText.trimmingCharacters(in: .whitespaces) == ""){
-            return searchText
+        if ( searchText.isEmpty ) || ( searchText.trimmingCharacters( in: .whitespaces ) == "" ) {
+            return true
         } else {
-            return ""
+            return false
         }
     }
+    
+    func watchListStatus( isOnWatchList: Bool ) -> String {
+        if isOnWatchList{
+            return "clock.fill"
+        } else {
+            return "clock"
+        }
+    }
+    
+    func favListStatus( isOnFavList: Bool ) -> String {
+        if isOnFavList{
+            return "heart.fill"
+        } else {
+            return "heart"
+        }
+    }
+    
 }

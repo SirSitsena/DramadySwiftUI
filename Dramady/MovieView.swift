@@ -13,7 +13,6 @@ struct MovieView: View {
     @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     
     
-    
     @State var presentAlert: Bool = false
     @State var alertText: String = ""
     
@@ -86,7 +85,8 @@ struct MovieView: View {
                         } else {
                             Text("Add to watchlist")
                         }
-                    }
+                    }.padding(.top, 25)
+                        .padding(.bottom, 25)
                 } else {
                     if let mov = movie {
                         Text(mov.title)
