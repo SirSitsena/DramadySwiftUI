@@ -17,10 +17,31 @@ class DramadyTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testTabicon() throws {
+        
+        //Test that all tab names return a something on both lower and uppercase.
+        let conf = Configuration()
+        XCTAssert(conf.tabIcon(name: "main") != "")
+        XCTAssert(conf.tabIcon(name: "Main") != "")
+        
+        XCTAssert(conf.tabIcon(name: "trending") != "")
+        XCTAssert(conf.tabIcon(name: "Trending") != "")
+        
+        XCTAssert(conf.tabIcon(name: "Popular") != "")
+        XCTAssert(conf.tabIcon(name: "popular") != "")
+        
+        XCTAssert(conf.tabIcon(name: "Favourites") != "")
+        XCTAssert(conf.tabIcon(name: "favourites") != "")
+        
+        XCTAssert(conf.tabIcon(name: "Watchlist") != "")
+        XCTAssert(conf.tabIcon(name: "watchlist") != "")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
     }
 
     func testPerformanceExample() throws {

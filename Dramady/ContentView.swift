@@ -19,19 +19,13 @@ let queue = DispatchQueue(label: "InternetConnectionMonitor")
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
-    //@FetchRequest(
-    //    sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-    //    animation: .default)
-    //private var items: FetchedResults<Item>
-    //@StateObject var apimodel = ApiModel()
-    
-    
+    let config = Configuration()
     
     init() {
         UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().backgroundColor = .black    }
-
+        UITabBar.appearance().backgroundColor = .black
+        
+    }
     
     var body: some View {
         
@@ -39,31 +33,31 @@ struct ContentView: View {
                 MainPage()
                     .tabItem {
                         Text("Main")
-                        Image(systemName: "house")
+                        Image(systemName: config.tabIcon(name: "main"))
                     }
                     .colorScheme(.dark)
                 TrendingPage()
                     .tabItem {
                         Text("Trending")
-                        Image(systemName: "arrow.uturn.up")
+                        Image(systemName: config.tabIcon(name: "trending"))
                     }
                     .colorScheme(.dark)
                 PopularPage()
                     .tabItem {
                         Text("Popular")
-                        Image(systemName: "star")
+                        Image(systemName: config.tabIcon(name: "popular"))
                     }
                     .colorScheme(.dark)
                 FavouritesPage()
                     .tabItem {
                         Text("Favourites")
-                        Image(systemName: "heart")
+                        Image(systemName: config.tabIcon(name:"favourites"))
                     }
                     .colorScheme(.dark)
                 WatchlistPage()
                     .tabItem {
                         Text("Watchlist")
-                        Image(systemName: "clock.fill")
+                        Image(systemName: config.tabIcon(name: "watchlist"))
                     }
                     .colorScheme(.dark)
             }

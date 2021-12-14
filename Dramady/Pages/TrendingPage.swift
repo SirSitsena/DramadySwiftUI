@@ -9,8 +9,6 @@ import SwiftUI
 
 struct TrendingPage: View {
     @State private var movies = [topMovie]()
-    @ObservedObject var imageFetcher = ImageFetcher()
-    @State var images: [String: UIImage] = [:]
     
     @State public var intStatus = false
     
@@ -43,7 +41,6 @@ struct TrendingPage: View {
                                         .resizable()
                                         .frame(width: 50, height: 50, alignment: .leading)
                                 } else if phase.error != nil {
-//                                    Color.red
                                     ProgressView()
                                 } else {
                                     ProgressView()
@@ -76,7 +73,6 @@ struct TrendingPage: View {
         }.background(Color.black)
         .frame(minHeight: screenHeight)
         .navigationViewStyle(StackNavigationViewStyle())
-        
     }
 }
 

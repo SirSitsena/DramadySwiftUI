@@ -11,6 +11,9 @@
 		3A35ADA127664D3200727D34 /* DramadyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AD9F27664D3200727D34 /* DramadyDataModel.xcdatamodeld */; };
 		3A35AE30276675C500727D34 /* LocalMovie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE2E276675C500727D34 /* LocalMovie+CoreDataClass.swift */; };
 		3A35AE31276675C500727D34 /* LocalMovie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE2F276675C500727D34 /* LocalMovie+CoreDataProperties.swift */; };
+		3A35AE3327686CA900727D34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE3227686CA900727D34 /* Configuration.swift */; };
+		3A35AE3427686CA900727D34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE3227686CA900727D34 /* Configuration.swift */; };
+		3A35AE3527686CA900727D34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A35AE3227686CA900727D34 /* Configuration.swift */; };
 		CE3A5355274CE40B003878B2 /* LyricsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A5354274CE40A003878B2 /* LyricsPage.swift */; };
 		CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D042274BBA4300B8E7FC /* DramadyApp.swift */; };
 		CE56D045274BBA4300B8E7FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D044274BBA4300B8E7FC /* ContentView.swift */; };
@@ -63,6 +66,7 @@
 		3A35ADA027664D3200727D34 /* DramadyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DramadyDataModel.xcdatamodel; sourceTree = "<group>"; };
 		3A35AE2E276675C500727D34 /* LocalMovie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocalMovie+CoreDataClass.swift"; path = "Dramady/Data/CoreData/LocalMovie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3A35AE2F276675C500727D34 /* LocalMovie+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocalMovie+CoreDataProperties.swift"; path = "Dramady/Data/CoreData/LocalMovie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3A35AE3227686CA900727D34 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		CE3A5354274CE40A003878B2 /* LyricsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsPage.swift; sourceTree = "<group>"; };
 		CE56D03F274BBA4300B8E7FC /* Dramady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE56D042274BBA4300B8E7FC /* DramadyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramadyApp.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 				CE56D048274BBA4400B8E7FC /* Preview Content */,
 				CE5B99C0274BECE800BC769D /* MovieView.swift */,
 				CED8409E2753B87B00D47CF7 /* ImageFetcher.swift */,
+				3A35AE3227686CA900727D34 /* Configuration.swift */,
 			);
 			path = Dramady;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				CE56D045274BBA4300B8E7FC /* ContentView.swift in Sources */,
 				CE56D0B1274BC64F00B8E7FC /* PopularPage.swift in Sources */,
 				CE56D0B3274BC8BD00B8E7FC /* FavouritesPage.swift in Sources */,
+				3A35AE3327686CA900727D34 /* Configuration.swift in Sources */,
 				CE5B99CF274C22F400BC769D /* ResultsPage.swift in Sources */,
 				CE56D0AF274BC63F00B8E7FC /* TrendingPage.swift in Sources */,
 				CED8409B2753B02800D47CF7 /* TopMovies.swift in Sources */,
@@ -381,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE56D059274BBA4400B8E7FC /* DramadyTests.swift in Sources */,
+				3A35AE3427686CA900727D34 /* Configuration.swift in Sources */,
 				CED840A02753B87B00D47CF7 /* ImageFetcher.swift in Sources */,
 				CE5B99C2274BECE800BC769D /* MovieView.swift in Sources */,
 				CE5B99D0274C22F400BC769D /* ResultsPage.swift in Sources */,
@@ -391,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A35AE3527686CA900727D34 /* Configuration.swift in Sources */,
 				CE56D063274BBA4400B8E7FC /* DramadyUITests.swift in Sources */,
 				CE5B99C3274BECE800BC769D /* MovieView.swift in Sources */,
 				CE5B99D1274C22F400BC769D /* ResultsPage.swift in Sources */,

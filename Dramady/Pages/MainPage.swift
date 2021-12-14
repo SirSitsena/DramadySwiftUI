@@ -36,7 +36,6 @@ struct MainPage: View {
     var body: some View {
             NavigationView {
                 VStack {
-                    
                     Text("Searching for \(searchText)")
                         .foregroundColor(.yellow)
                         .searchable(text: $searchText)
@@ -44,16 +43,7 @@ struct MainPage: View {
                         .navigationTitle(Text("Dramady"))
                     Button {
                         status()
-//                        if intStatus == false{
-//                            self.alertText = "No internet connection"
-//                            self.presentAlert = true
-//                            self.searchActive = false
-//                        } else {
-//                            if intStatus == true{
-//                                self.searchActive = true
-//                            }
-//                        }
-//                        //Validate
+                        //Validate
                         if (self.searchText == "")||(intStatus == false) {
                             self.alertText = """
                                             Please enter keywords before searching and internet connection
@@ -67,15 +57,12 @@ struct MainPage: View {
                                 self.searchActive = true
                                 status()
                             }
-                            
                         }
                         
                     } label : {
                         Text("Search!")
                     }
-                    
                     NavigationLink(destination: ResultsPage(searchText: self.$searchText), isActive: $searchActive) { EmptyView()}
-//                    Spacer()
                 }
                     .padding(.top, 25)
             }

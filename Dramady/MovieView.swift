@@ -207,21 +207,7 @@ struct MovieView: View {
                 Alert(title: Text("Alert!"), message: Text(self.alertText), dismissButton: .default(Text("OK")))
             }.listStyle(InsetGroupedListStyle())
                 .frame(minHeight: screenHeight)
-//                .padding(.top, 50)
-//                .padding(.bottom, 100)
-        //}.frame(
-        //    minHeight: 810,
-        //    maxHeight: .infinity,
-        //    alignment: .center
-        //)
-
-//        Text("---------")
-//                .padding(.top,40)
         }
-//        .padding(.top,0)
-        
-//        .navigationViewStyle(StackNavigationViewStyle())
-            
 }
 
 //struct MovieView_Previews: PreviewProvider {

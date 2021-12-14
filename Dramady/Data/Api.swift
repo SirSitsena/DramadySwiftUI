@@ -53,8 +53,15 @@ class Api: ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
-            let movies = try! JSONDecoder().decode(MoviesSearch.self, from: data!)
-            //print(movies)
+            guard let data = data else {
+                print("No data found")
+                return
+            }
+            
+            guard let movies = try? JSONDecoder().decode(MoviesSearch.self, from: data) else {
+                print("Couldn't  decode data")
+                return
+            }
             DispatchQueue.main.async {
                 completion(movies)
             }
@@ -68,7 +75,14 @@ class Api: ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
-            let movies = try! JSONDecoder().decode(topMovies.self, from: data!)
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            guard let movies = try? JSONDecoder().decode(topMovies.self, from: data) else {
+                print("Could't decode data")
+                return
+            }
             //print(movies)
             DispatchQueue.main.async {
                 completion(movies)
@@ -83,14 +97,22 @@ class Api: ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) {data, response, error in
-            let movies = try! JSONDecoder().decode(popularMovies.self, from: data!)
-            //print(movies)
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+            guard let movies = try? JSONDecoder().decode(popularMovies.self, from: data) else {
+                print("Couldn't decode data")
+                return
+            }
             DispatchQueue.main.async {
                 completion(movies)
             }
         }.resume()
     }
     
+    //Fetch a full movie, this is the  format that the movie is saved on  the device with.
     func fetchFromTitleID(titleId: String, completion: @escaping (FullMovie) -> ()) {
         let stringUrl = "https://imdb-api.com/en/API/Title/\(apiKey)/\(titleId)"
         guard let url = URL(string: stringUrl) else {
@@ -106,14 +128,9 @@ class Api: ObservableObject {
                 print("Couldn't decode data")
                 return
             }
-            //let results = try! JSONDecoder().decode(FullMovie.self, from: data)
             DispatchQueue.main.async {
                 completion(results)
             }
         }.resume()
     }
-    //Fetch before a favourite
-    //func fetchBeforeSave(id: String) {
-        //
-    //}
 }

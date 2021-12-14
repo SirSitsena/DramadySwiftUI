@@ -11,8 +11,6 @@ import SwiftUI
 
 struct PopularPage: View {
     @State private var movies = [popularMovie]()
-    @ObservedObject var imageFetcher = ImageFetcher()
-    @State var images: [String: UIImage] = [:]
     
     @State public var intStatus = false
     
@@ -45,7 +43,6 @@ struct PopularPage: View {
                                         .frame(width: 50, height: 50, alignment: .leading)
                                 } else if phase.error != nil {
                                     ProgressView()
-//                                    Color.red
                                 } else {
                                     ProgressView()
                                 }
@@ -73,7 +70,7 @@ struct PopularPage: View {
                     status()
                 }
             }
-            }//.background(Color.red)
+            }
         }
         
         .background(Color.black)
