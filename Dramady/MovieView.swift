@@ -13,6 +13,7 @@ struct MovieView: View {
     @FetchRequest(entity:  LocalMovie.entity(), sortDescriptors: []) private var movies: FetchedResults<LocalMovie>
     
     
+    
     @State var presentAlert: Bool = false
     @State var alertText: String = ""
     
@@ -20,6 +21,7 @@ struct MovieView: View {
     @State var movie: FullMovie?
     //@State var localMovie: Movie?
     let tId: String
+    let config = Configuration()
     
     func updateFavourite(movie: LocalMovie) {
         let newIsFavourited = movie.isFavourited ?  false : true
@@ -60,13 +62,13 @@ struct MovieView: View {
                         }
                     }
                     //.padding(.bottom, 15)
-                    Text("Year: \(localMov.year ?? "")")
+                    Text("Year: \(config.checkValidText(value: localMov.year))")
                         .padding(.bottom, 15)
-                    Text("Imdb rating: \(localMov.imDbRating ?? "")")
+                    Text("Imdb rating: \(config.checkValidText(value: localMov.imDbRating))")
                     .padding(.bottom, 15)
-                    Text("Movie length: \(localMov.runtimeStr ?? "")")
+                    Text("Movie length: \(config.checkValidText(value: localMov.runtimeStr))")
                         .padding(.bottom, 15)
-                    Text(localMov.plot ?? "no plot saved") //?? "No plot saved")
+                    Text(config.checkValidText(value: localMov.plot)) //?? "No plot saved")
                     Button {
                         updateFavourite(movie: localMov)
                     } label: {
@@ -102,11 +104,11 @@ struct MovieView: View {
                             }
                         }
                         .padding(.bottom, 15)
-                        Text("Year: \(mov.year)")
+                        Text("Year: \(config.checkValidText(value: mov.year))")
                             .padding(.bottom, 15)
-                        Text("Imdb rating: \(mov.imDbRating)")
+                        Text("Imdb rating: \(config.checkValidText(value: mov.imDbRating))")
                         .padding(.bottom, 15)
-                        Text("Movie length: \(mov.runtimeStr)")
+                        Text("Movie length: \(config.checkValidText(value: mov.runtimeStr))")
                             .padding(.bottom, 15)
                         Button {
                             var alreadyOnlist = false
@@ -185,7 +187,7 @@ struct MovieView: View {
                         } label: {
                             Text("Add to watchlist")
                         }
-                        Text(mov.plot)
+                        Text(config.checkValidText(value: mov.plot))
                         
                     }
                 }

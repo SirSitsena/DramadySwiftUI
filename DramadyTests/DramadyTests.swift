@@ -37,6 +37,14 @@ class DramadyTests: XCTestCase {
         XCTAssert(conf.tabIcon(name: "Watchlist") != "")
         XCTAssert(conf.tabIcon(name: "watchlist") != "")
     }
+    
+    func testValidText() throws {
+        let conf = Configuration()
+        XCTAssert(conf.checkValidText(value: "") == "N/A")
+        XCTAssert(conf.checkValidText(value: "myTest") == "myTest")
+        XCTAssert(conf.checkValidText(value: String()) == "N/A")
+        XCTAssert(conf.checkValidText(value: nil) == "N/A")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.

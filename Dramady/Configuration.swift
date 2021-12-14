@@ -9,6 +9,14 @@ import Foundation
 
 class Configuration {
     
+    func checkValidText(value: String?) -> String{
+        if let val = value {
+            if val != "" {
+                return val
+            }
+        }
+        return "N/A"
+    }
     
     func tabIcon(name: String ) -> String {
         let low = name.lowercased()
