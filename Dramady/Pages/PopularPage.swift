@@ -14,18 +14,18 @@ struct PopularPage: View {
     
     @State public var intStatus = false
     
-    func status(){
-        monitor.pathUpdateHandler = { pathUpdateHandler in
-                   if pathUpdateHandler.status == .satisfied {
-                       intStatus = true
-                       print("Internet connection is on.")
-                   } else {
-                       intStatus = false
-                       print("There's no internet connection.")
-                   }
-               }
-               monitor.start(queue: queue)
-    }
+    //func status(){
+    //    monitor.pathUpdateHandler = { pathUpdateHandler in
+    //               if pathUpdateHandler.status == .satisfied {
+    //                   intStatus = true
+    //                   print("Internet connection is on.")
+    //               } else {
+    //                   intStatus = false
+     //                  print("There's no internet connection.")
+     //              }
+     //}
+    //           monitor.start(queue: queue)
+   // }
     
     var body: some View {
         NavigationView {
@@ -59,16 +59,16 @@ struct PopularPage: View {
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
-                intStatus = false
-                status()
-                if intStatus == true{
+                //intStatus = false
+                //status()
+                //if intStatus == true{
                     Api().fetchPopular { (popularMovie) in
                         self.movies = popularMovie.items
                         intStatus = false
                     }
-                } else {
-                    status()
-                }
+                //} else {
+                //    status()
+                //}
             }
             }
         }

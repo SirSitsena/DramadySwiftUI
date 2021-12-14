@@ -19,18 +19,18 @@ struct MainPage: View {
     
     @State public var intStatus = false
     
-    func status(){
-        monitor.pathUpdateHandler = { pathUpdateHandler in
-                   if pathUpdateHandler.status == .satisfied {
-                       intStatus = true
-                       print("Internet connection is on.")
-                   } else {
-                       intStatus = false
-                       print("There's no internet connection.")
-                   }
-               }
-               monitor.start(queue: queue)
-    }
+   // func status(){
+   //     monitor.pathUpdateHandler = { pathUpdateHandler in
+   //                if pathUpdateHandler.status == .satisfied {
+   //                    self.intStatus = true
+   //                    print("Internet connection is on.")
+   //                } else {
+   //                    self.intStatus = false
+   //                    print("There's no internet connection.")
+   //                }
+   //            }
+   //            monitor.start(queue: queue)
+   // } ///
     
     
     var body: some View {
@@ -42,27 +42,38 @@ struct MainPage: View {
                         .multilineTextAlignment(.leading)
                         .navigationTitle(Text("Dramady"))
                     Button {
-                        status()
+                        //status()
                         //Validate
-                        if (self.searchText == "")||(intStatus == false) {
+                        if (self.searchText == "") {//||(self.intStatus == false) {
+                            print(self.intStatus)
+                            print(self.searchText)
                             self.alertText = """
                                             Please enter keywords before searching and internet connection
                                             """
                             self.presentAlert = true
                             self.searchActive = false
-                            intStatus = false
-                            status()
+                            self.intStatus = false
+                            //status()
                         } else {
-                            if intStatus == true{
+                            //if intStatus == true{
                                 self.searchActive = true
-                                status()
-                            }
+                                //status()
+                            //}
                         }
                         
                     } label : {
                         Text("Search!")
                     }
                     NavigationLink(destination: ResultsPage(searchText: self.$searchText), isActive: $searchActive) { EmptyView()}
+                    Spacer()
+                    ScrollView {
+                        Image("Icon-512").resizable()
+                            .scaledToFit()
+                        Text("Welcome to dramady!").font(.title)
+                        Text("On this app you will have an easy way of storing your favourite movie's information, If  you would like you can save a movie to your favourites or simply add it to the watchlist. You can start off by trying to search for a movie of your choice in the bar above.")
+                            .font(.body)
+                        Text("Thank you for using Dramady").font(.title3)
+                    }
                 }
                     .padding(.top, 25)
             }

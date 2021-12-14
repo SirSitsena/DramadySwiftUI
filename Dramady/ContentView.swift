@@ -13,8 +13,8 @@ import CoreData
 
 import Network
 
-let monitor = NWPathMonitor()
-let queue = DispatchQueue(label: "InternetConnectionMonitor")
+//let monitor = NWPathMonitor()
+//let queue = DispatchQueue(label: "InternetConnectionMonitor")
 
 
 struct ContentView: View {

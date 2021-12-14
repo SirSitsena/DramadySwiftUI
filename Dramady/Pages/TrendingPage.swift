@@ -12,18 +12,18 @@ struct TrendingPage: View {
     
     @State public var intStatus = false
     
-    func status(){
-        monitor.pathUpdateHandler = { pathUpdateHandler in
-                   if pathUpdateHandler.status == .satisfied {
-                       intStatus = true
-                       print("Internet connection is on.")
-                   } else {
-                       intStatus = false
-                       print("There's no internet connection.")
-                   }
-               }
-               monitor.start(queue: queue)
-    }
+    //func status(){
+    //    monitor.pathUpdateHandler = { pathUpdateHandler in
+    //               if pathUpdateHandler.status == .satisfied {
+    //                   intStatus = true
+    //                   print("Internet connection is on.")
+    //               } else {
+    //                   intStatus = false
+    //                   print("There's no internet connection.")
+    //               }
+    //           }
+    //           monitor.start(queue: queue)
+    //}
     
     var body: some View {
         NavigationView {
@@ -57,16 +57,16 @@ struct TrendingPage: View {
             .listStyle(InsetGroupedListStyle())
             .colorScheme(.dark)
             .task {
-                intStatus = false
-                status()
-                if intStatus == true{
+                //intStatus = false
+                //status()
+                //if intStatus == true{
                     Api().fetchTop250 { (topMovies) in
                         self.movies = topMovies.items
-                        intStatus = false
+                        //intStatus = false
                     }
-                } else {
-                    status()
-                }
+                //} else {
+                //    status()
+                //}
                 
             }
             }
