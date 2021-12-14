@@ -35,4 +35,18 @@ class Configuration {
             return ""
         }
     }
+    
+    func inputEmptyCheckConf( searchText: String ) -> String {
+                
+        // Check empty string
+        if searchText.isEmpty {
+            return ""
+        }
+        // Trim and check empty string
+        if (searchText.trimmingCharacters(in: .whitespaces) == ""){
+            return searchText
+        } else {
+            return ""
+        }
+    }
 }

@@ -17,20 +17,36 @@ struct MainPage: View {
     @State private var presentAlert: Bool = false
     @State private var alertText: String = ""
     
-    @State public var intStatus = false
+    //----------------------------Unused Code
+    //    @State public var intStatus = false
+    // func status(){
+    //     monitor.pathUpdateHandler = { pathUpdateHandler in
+    //                if pathUpdateHandler.status == .satisfied {
+    //                    self.intStatus = true
+    //                    print("Internet connection is on.")
+    //                } else {
+    //                    self.intStatus = false
+    //                    print("There's no internet connection.")
+    //                }
+    //            }
+    //            monitor.start(queue: queue)
+    // } ///
+    //----------------------------------
+
     
-   // func status(){
-   //     monitor.pathUpdateHandler = { pathUpdateHandler in
-   //                if pathUpdateHandler.status == .satisfied {
-   //                    self.intStatus = true
-   //                    print("Internet connection is on.")
-   //                } else {
-   //                    self.intStatus = false
-   //                    print("There's no internet connection.")
-   //                }
-   //            }
-   //            monitor.start(queue: queue)
-   // } ///
+    
+    //Took this func from:www.coderoad.ru/27768064/Проверьте-содержит-ли-текстовое-поле-Swift-не-whitespace
+    func inputEmptyCheck( searchText: String ) -> Bool {
+                
+            // Check empty string
+            if searchText.isEmpty {
+                return true
+            }
+                // Trim and check empty string.
+                return (searchText.trimmingCharacters(in: .whitespaces) == "")
+            }
+    
+
     
     
     var body: some View {
@@ -42,23 +58,16 @@ struct MainPage: View {
                         .multilineTextAlignment(.leading)
                         .navigationTitle(Text("Dramady"))
                     Button {
-                        //status()
-                        //Validate
-                        if (self.searchText == "") {//||(self.intStatus == false) {
-                            print(self.intStatus)
+                        if (inputEmptyCheck(searchText: searchText)) {
                             print(self.searchText)
                             self.alertText = """
-                                            Please enter keywords before searching and internet connection
+                                            Please enter keywords before searching
                                             """
                             self.presentAlert = true
                             self.searchActive = false
-                            self.intStatus = false
-                            //status()
+                            self.searchText = ""
                         } else {
-                            //if intStatus == true{
                                 self.searchActive = true
-                                //status()
-                            //}
                         }
                         
                     } label : {

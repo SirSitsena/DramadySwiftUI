@@ -45,6 +45,14 @@ class DramadyTests: XCTestCase {
         XCTAssert(conf.checkValidText(value: String()) == "N/A")
         XCTAssert(conf.checkValidText(value: nil) == "N/A")
     }
+    
+    func testSearchTextValidation() throws {
+        let conf = Configuration()
+        XCTAssert(conf.inputEmptyCheckConf(searchText: "") == "")
+        XCTAssert(conf.inputEmptyCheckConf(searchText: "   ") == "")
+        XCTAssert(conf.inputEmptyCheckConf(searchText: "Harry") == "Harry")
+        XCTAssert(conf.inputEmptyCheckConf(searchText: "  Harry  12") == "  Harry  12")
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
