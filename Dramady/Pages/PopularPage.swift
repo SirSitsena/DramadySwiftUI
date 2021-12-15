@@ -17,10 +17,10 @@ struct PopularPage: View {
         NavigationView {
             VStack{
                 if movies.isEmpty {
-                    Text("Please check your internet connection").font(.title)
+                    Text("Searching for Leonardo Di Caprio").font(.title)
                     ProgressView()
                 } else {
-                    Text("Popular Movies")
+                    Text("Popular Now")
                         .font(.title).bold().italic()
                         .foregroundColor(.yellow)
                     List(movies, id: \.id) {movie in

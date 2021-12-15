@@ -46,7 +46,7 @@ struct MovieView: View {
     var body: some View {
         ScrollView{
             VStack {
-                if let localMov = localMovie {
+                if let localMov = localMovie { //If the current movie is present in the CoreData check
                     Text(localMov.title ?? "No title saved")
                         .font(.title)
                     if let imageStr = localMov.image {
@@ -172,8 +172,7 @@ struct MovieView: View {
                                     print("error favouriting")
                                 }
                                 self.alertText = "Added to favourites"
-                                updView.status.toggle()
-                                updView.objectWillChange.send()
+
                                 self.presentAlert = true
                             }
                             } label: {

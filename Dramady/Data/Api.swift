@@ -23,26 +23,26 @@ struct SongSearch: Decodable {
 
 // Working version, completion handler. needs fixing for simultanous api calls?
 class Api: ObservableObject {
-    @Published var lyrics: String = ""
+//    @Published var lyrics: String = ""
     let apiKey: String = "k_9t0l0iej"
     
     // FRANKENSTEIN - Unrelated function loading lyrics of song from artist and title
-    func load(artist: String, title: String, completion: @escaping (SongSearch) -> ()) {
-        let escapedArtist = artist.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let escapedTitle = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let stringUrl = "https://api.lyrics.ovh/v1/\(escapedArtist!)/\(escapedTitle!)"
-        guard let url = URL(string: stringUrl) else {
-            print("invalid url")
-            return
-        }
-        URLSession.shared.dataTask(with: url) {data, response, error in
-            let lyr = try! JSONDecoder().decode(SongSearch.self, from: data!)
-            //print(lyr)
-            DispatchQueue.main.async {
-                completion(lyr)
-            }
-        }.resume()
-    }
+//    func load(artist: String, title: String, completion: @escaping (SongSearch) -> ()) {
+//        let escapedArtist = artist.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        let escapedTitle = title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        let stringUrl = "https://api.lyrics.ovh/v1/\(escapedArtist!)/\(escapedTitle!)"
+//        guard let url = URL(string: stringUrl) else {
+//            print("invalid url")
+//            return
+//        }
+//        URLSession.shared.dataTask(with: url) {data, response, error in
+//            let lyr = try! JSONDecoder().decode(SongSearch.self, from: data!)
+//            //print(lyr)
+//            DispatchQueue.main.async {
+//                completion(lyr)
+//            }
+//        }.resume()
+//    }
     
     // Function for searching for a movie
     func movieSearch(keyWords: String, completion: @escaping (MoviesSearch) -> ()) {

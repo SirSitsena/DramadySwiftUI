@@ -14,10 +14,10 @@ struct TrendingPage: View {
         NavigationView {
             VStack{
                 if movies.isEmpty {
-                    Text("Please check your internet connection").font(.title)
+                    Text("We are seasoning the popcorn...").font(.title)
                     ProgressView()
                 } else {
-                    Text("Trending Now")
+                    Text("All time best movies")
                         .font(.title).bold().italic()
                         .foregroundColor(.yellow)
 
