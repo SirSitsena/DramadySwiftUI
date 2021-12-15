@@ -39,9 +39,7 @@ struct ResultsPage: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .background(Color.black)
-        .frame(
-            minHeight: screenHeight
-        )
+        .frame(minHeight: screenHeight)
         
     }
 }

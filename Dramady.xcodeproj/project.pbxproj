@@ -39,6 +39,7 @@
 		CE56D0B1274BC64F00B8E7FC /* PopularPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */; };
 		CE56D0B3274BC8BD00B8E7FC /* FavouritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */; };
 		CE56D0B5274BDB7400B8E7FC /* WatchlistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */; };
+		CE57C46027693C3E0037BAB2 /* ViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE57C45F27693C3E0037BAB2 /* ViewUpdater.swift */; };
 		CE5B99BF274BE44900BC769D /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99BE274BE44900BC769D /* Api.swift */; };
 		CE5B99C1274BECE800BC769D /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99C0274BECE800BC769D /* MovieView.swift */; };
 		CE5B99CF274C22F400BC769D /* ResultsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B99CE274C22F400BC769D /* ResultsPage.swift */; };
@@ -91,6 +92,7 @@
 		CE56D0B0274BC64F00B8E7FC /* PopularPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPage.swift; sourceTree = "<group>"; };
 		CE56D0B2274BC8BD00B8E7FC /* FavouritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesPage.swift; sourceTree = "<group>"; };
 		CE56D0B4274BDB7400B8E7FC /* WatchlistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistPage.swift; sourceTree = "<group>"; };
+		CE57C45F27693C3E0037BAB2 /* ViewUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUpdater.swift; sourceTree = "<group>"; };
 		CE5B99BE274BE44900BC769D /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		CE5B99C0274BECE800BC769D /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		CE5B99CE274C22F400BC769D /* ResultsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPage.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				CED8409A2753B02800D47CF7 /* TopMovies.swift */,
 				CED8409C2753B03600D47CF7 /* PopularMovies.swift */,
 				3A35AD4F2764A78900727D34 /* FullMovie.swift */,
+				CE57C45F27693C3E0037BAB2 /* ViewUpdater.swift */,
 			);
 			path = ResultTypes;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				CED8409B2753B02800D47CF7 /* TopMovies.swift in Sources */,
 				3A35AE31276675C500727D34 /* LocalMovie+CoreDataProperties.swift in Sources */,
 				CE56D04F274BBA4400B8E7FC /* Dramady.xcdatamodeld in Sources */,
+				CE57C46027693C3E0037BAB2 /* ViewUpdater.swift in Sources */,
 				CE56D043274BBA4300B8E7FC /* DramadyApp.swift in Sources */,
 				CE5B99C1274BECE800BC769D /* MovieView.swift in Sources */,
 				3A35AE30276675C500727D34 /* LocalMovie+CoreDataClass.swift in Sources */,
